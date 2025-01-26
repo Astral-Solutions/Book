@@ -156,12 +156,12 @@ function MissionStatement() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <button className="px-8 py-3 bg-[#2b347c] text-white rounded-full hover:bg-[#1a2d6b] transition-colors">
+          {/* <button className="px-8 py-3 bg-[#2b347c] text-white rounded-full hover:bg-[#1a2d6b] transition-colors">
             Partner With Us
           </button>
           <button className="px-8 py-3 bg-[#1a2d6b] text-white rounded-full hover:bg-[#0f214e] transition-colors">
             Get Involved Today
-          </button>
+          </button> */}
         </motion.div>
       </section>
     </div>

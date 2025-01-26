@@ -118,7 +118,7 @@ function Footer() {
         <p>
           Designed with ♥ by{" "}
           <a href="#" className="text-gray-300 hover:text-gray-100">
-            Your Team
+            Astral Solutions
           </a>
           .
         </p>

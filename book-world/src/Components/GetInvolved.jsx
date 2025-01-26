@@ -49,7 +49,7 @@ const GetInvolvedPage = () => {
               Participate in our upcoming fundraising events or organize one to support our mission.
             </p>
             <Link
-              to="/fundraising"
+              to="/calendar"
               className="inline-block px-6 py-2 bg-[#2b347c] text-white rounded-full hover:bg-[#1a2d6b] transition"
             >
               View Events
