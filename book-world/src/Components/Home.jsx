@@ -29,7 +29,7 @@ function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 z-10"></div>
         <img
           src="/images/BookWorldTeam.jpg"
-          alt="Children enjoying books"
+          alt="Book World Team"
           loading="lazy"
           className="w-full h-full object-contain"
         />
@@ -57,7 +57,7 @@ function Home() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
-              <Link
+              {/* <Link
                 to="/donate"
                 className="inline-flex items-center gap-2 px-8 py-3 bg-[#2b347c] text-white rounded-full hover:bg-[#1a2d6b] transition-colors duration-300"
               >
@@ -68,7 +68,7 @@ function Home() {
                 className="inline-flex items-center gap-2 px-8 py-3 bg-[#2b347c] text-white rounded-full hover:bg-[#1a2d6b] transition-colors duration-300"
               >
                 Volunteer Now
-              </Link>
+              </Link> */}
             </motion.div>
           </div>
         </div>
@@ -140,7 +140,7 @@ function Home() {
         <p className="text-gray-600 max-w-3xl mx-auto mb-8">
           Every book counts, every child matters. Together, we can create a brighter future through literacy and a love for reading.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/support"
             className="px-8 py-3 bg-[#2b347c] text-white rounded-full hover:bg-[#1a2d6b] transition"
@@ -153,7 +153,7 @@ function Home() {
           >
             Learn More About Us
           </Link>
-        </div>
+        </div> */}
       </section>
     </div>
   );
