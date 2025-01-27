@@ -44,6 +44,12 @@ function Contact() {
             "Bringing literacy to life. Reach out to us today!"
           </p>
           <FaArrowDown className="animate-bounce text-[#2b347c] text-2xl mx-auto mt-4 cursor-pointer" />
+          <img 
+              src="/images/BookWorldLogo.png" 
+              alt="Book World Logo" 
+              loading= "lazy"
+              className="mx-auto w-40 h-40 rounded-full mb-4 shadow-lg border-4 border-white"
+            />
         </div>
       </section>
 
@@ -90,10 +96,10 @@ function Contact() {
               <FaEnvelope className="text-[#2b347c] text-2xl mx-auto mb-4" />
               <h3 className="font-semibold mb-2">Email</h3>
               <a
-                href="mailto:Contact@bookworld.org"
+                href="mailto:nmilanzi@bookworld.org.za"
                 className="text-[#2b347c] hover:underline"
               >
-                Contact@bookworld.org
+                nmilanzi@bookworld.org.za
               </a>
             </div>
           </div>
@@ -105,7 +111,7 @@ function Contact() {
             Follow Us on Social Media
           </h2>
           <a
-            href="https://facebook.com/BookWorld"
+            href="https://web.facebook.com/DRLETMETALKGROUPEDU/?_rdc=1&_rdr#"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-[#2b347c] hover:underline"
@@ -116,7 +122,7 @@ function Contact() {
         </section>
 
         {/* Contact Form */}
-        <section className="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-lg mt-16 relative overflow-hidden">
+        {/* <section className="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-lg mt-16 relative overflow-hidden">
           {submitted && (
             <div className="absolute inset-0 bg-white bg-opacity-90 flex items-center justify-center z-10">
               <div className="text-center text-[#2b347c]">
@@ -189,7 +195,7 @@ function Contact() {
               <FaEnvelope className="text-sm" />
             </button>
           </form>
-        </section>
+        </section> */}
       </div>
     </div>
   );

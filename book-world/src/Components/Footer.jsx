@@ -69,45 +69,45 @@ function Footer() {
           </p>
           <div className="flex space-x-4">
             <a
-              href="https://facebook.com"
+              href="https://web.facebook.com/DRLETMETALKGROUPEDU/?_rdc=1&_rdr#"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-gray-100 transition text-xl"
             >
               <FaFacebook />
             </a>
-            <a
+            {/* <a
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-gray-100 transition text-xl"
             >
               <FaTwitter />
-            </a>
-            <a
+            </a> */}
+            {/* <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-gray-100 transition text-xl"
             >
               <FaInstagram />
-            </a>
-            <a
+            </a> */}
+            {/* <a
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-gray-100 transition text-xl"
             >
               <FaLinkedin />
-            </a>
-            <a
+            </a> */}
+            {/* <a
               href="https://youtube.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-gray-100 transition text-xl"
             >
               <FaYoutube />
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
