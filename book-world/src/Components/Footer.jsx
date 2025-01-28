@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaChartBar } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa"; // Using only Facebook as per your example
 
 function Footer() {
   return (
-    <footer className="bg-[#2b347c] text-white py-12">
-      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-[#2b347c] text-white py-6">
+      <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         {/* Navigation Links */}
         <div>
           <h2 className="text-lg font-bold mb-4">Quick Links</h2>
-          <ul className="space-y-2">
+          <ul className="flex space-x-6">
             <li>
               <Link
                 to="/about"
@@ -62,54 +62,26 @@ function Footer() {
         </div>
 
         {/* Social Media Links */}
-        <div>
-          <h2 className="text-lg font-bold mb-4">Follow Us</h2>
-          <p className="text-sm text-gray-300 mb-4">
-            Stay connected with us on social media:
-          </p>
-          <div className="flex space-x-4">
-            <a
-              href="https://web.facebook.com/DRLETMETALKGROUPEDU/?_rdc=1&_rdr#"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-gray-100 transition text-xl"
-            >
-              <FaFacebook />
-            </a>
-            {/* <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-gray-100 transition text-xl"
-            >
-              <FaTwitter />
-            </a> */}
-            {/* <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-gray-100 transition text-xl"
-            >
-              <FaInstagram />
-            </a> */}
-            {/* <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-gray-100 transition text-xl"
-            >
-              <FaLinkedin />
-            </a> */}
-            {/* <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-gray-100 transition text-xl"
-            >
-              <FaYoutube />
-            </a> */}
-          </div>
-        </div>
+<div className="mt-6 md:mt-0 flex flex-col md:flex-row justify-end"> {/* Added flex-col for stacking */}
+  <div>
+    <h2 className="text-lg font-bold mb-4">Follow Us</h2>
+    <p className="text-sm text-gray-300 mb-4">
+      Stay connected with us on social media:
+    </p>
+  </div>
+  <div className="flex space-x-4">
+    <a
+      href="https://web.facebook.com/DRLETMETALKGROUPEDU/?_rdc=1&_rdr#"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-gray-300 hover:text-gray-100 transition text-xl"
+    >
+      <FaFacebook />
+    </a>
+    {/* Add other social media links if necessary */}
+  </div>
+</div>
+
       </div>
 
       {/* Bottom Section */}
@@ -117,7 +89,7 @@ function Footer() {
         <p>&copy; {new Date().getFullYear()} Book World. All rights reserved.</p>
         <p>
           Designed with ♥ by{" "}
-          <a href="#" className="text-gray-300 hover:text-gray-100">
+          <a href="https://astral-solutions.vercel.app/" className="text-gray-300 hover:text-gray-100">
             Astral Solutions
           </a>
           .
