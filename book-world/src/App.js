@@ -16,6 +16,7 @@ import BookDevelopment from "./Components/BookDevelopment";
 import BookDonation from "./Components/BookDonation";
 import LibraryFunctionality from "./Components/LibraryFunctionality";
 import VolunteerPage from "./Components/Volunteer";
+import DonationsPage from "./Components/Donate";
 function App() {
   return (
     <Router>
@@ -35,6 +36,7 @@ function App() {
           <Route path="book-donation" element={<BookDonation/>} />
           <Route path="book-development" element={<BookDevelopment/>} />
           <Route path="volunteer" element={<VolunteerPage/>} />
+          <Route path="/donate" element={<DonationsPage/>} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>
