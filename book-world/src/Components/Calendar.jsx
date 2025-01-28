@@ -1,115 +1,55 @@
-import React, { useState } from 'react';
-import Calendar from 'react-calendar';
-import { Calendar as CalendarIcon, Phone } from 'lucide-react';
-import 'react-calendar/dist/Calendar.css';
-import './styles/Calendar.css'
-import { Helmet } from 'react-helmet';
+import React, { useState } from "react";
+import { Helmet } from "react-helmet";
+import { Calendar as CalendarIcon } from "lucide-react";
 
 const events = [
-  // {
-  //   date: '2024-11-13',
-  //   title: 'Tsitsing Itireleng Sustainable Farming Programme 2024',
-  //   details: {
-  //     description: 'Join us as Kgosana Koketso Rakhudu launches the 2024 Sustainable Farming Programme, a pivotal event focused on food security and community empowerment.',
-  //     venue: 'Tsitsing Village Hall',
-  //     time: '8:30 AM',
-  //     contact: {
-  //       name: 'Ms. Tsholo Nape',
-  //       phone: '+27 (82) 972-5629',
-  //     },
-  //     highlights: [
-  //       'Learning sustainable farming practices',
-  //       'Distributing 500 food hampers to families in need',
-  //     ],
-  //   },
-  // },
-  // {
-  //   date: '2024-11-17',
-  //   title: 'Celebrating Excellence in Tsitsing',
-  //   details: {
-  //     venue: 'Tsitsing Primary School',
-  //     time: '8:00 AM - 10:30 AM',
-  //     dressCode: 'Traditional Attire',
-  //     contact: {
-  //       name: 'Ms. Tsholo Nape',
-  //       phone: '+27 (82) 972-5629',
-  //     },
-  //     keyFocus: [
-  //       '2025 Kgotla Calendar Launch',
-  //       'Tsitsing Excellence Awards',
-  //       'Launch of Tsitsing Family Literacy Program',
-  //     ],
-  //   },
-  // },
-  // {
-  //   date: '2024-11-29',
-  //   title: '9th Year Leadership Celebration',
-  //   details: {
-  //     description:
-  //       "Celebrate Kgosana Koketso Rakhudu's 9 years of dedication and leadership with a special graduation ceremony and inauguration of Dr. Koketso Rakhudu as Chancellor of KRF CET.",
-  //     venue: 'Maile Kopman',
-  //     time: '8:00 AM',
-  //     dressCode: 'Formal Attire',
-  //     specialGuests: [
-  //       'Prof. Keo Motaung - Biomedical Scientist & CEO of Global Health Biotech',
-  //       'Dr. Koketso Rakhudu - Incoming Chancellor of KRF CET',
-  //       'Prof. Kgomo Mathabe - Head of Urology, University of Pretoria',
-  //     ],
-  //   },
-  //   image: 'images/9thYear.jpg',
-  //   alt: 'Leadership Celebration Event',
-  //   loading: 'lazy',
-  // },
+  { date: "2025-02-05", title: "World Read Aloud Day", details: "Celebrating World Read Aloud Day at Kana Primary school with Book World", image: "/images/BookWorldTeam.jpg" },
+  { date: "2025-02-10", title: "Back to School Campaign", details: "Back to school activation in Cape Town with Book World", image: "/images/BookWorldTeam.jpg" },
+  { date: "2025-02-11", title: "Back to School Campaign", details: "Back to school activation in Cape Town with Book World", image: "/images/BookWorldTeam.jpg" },
+  { date: "2025-02-12", title: "Back to School Campaign", details: "Back to school activation in Cape Town with Book World", image: "/images/BookWorldTeam.jpg" },
+  { date: "2025-02-13", title: "Back to School Campaign", details: "Back to School activation in Free State With Book World", image: "/images/BookWorldTeam.jpg" },
+  { date: "2025-02-14", title: "Back to School Campaign", details: "Back to School activation in Free State With Book World", image: "/images/BookWorldTeam.jpg" },
+  { date: "2025-02-14", title: "Blind-Date With a Book", details: "Launching Blind-Date with a book at Stook Koffie Roostery in partnership with Rustenburg Library and Information Services 📚✨ Join us for a surprise book adventure! 📖☕", image: "/images/BlindDateWithABook.png" }
   
 ];
 
 const CalendarComponent = () => {
+  const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedEvents, setSelectedEvents] = useState([]);
   const [modalImage, setModalImage] = useState(null);
 
-  const formatDateToUTC = (date) => {
-    return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()))
-      .toISOString()
-      .split('T')[0];
-  };
+  const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-  const getTileContent = ({ date }) => {
-    const formattedDate = formatDateToUTC(date);
-    const eventsOnDate = events.filter((event) => event.date === formattedDate);
-
-    if (eventsOnDate.length > 0) {
-      return (
-        <div className="relative w-full h-full flex justify-center items-center">
-          <div className="absolute w-3 h-3 bg-blue-700 rounded-full opacity-80 shadow-md"></div>
-          {eventsOnDate.length > 1 && (
-            <span className="absolute bottom-0 right-0 text-xs text-white bg-blue-600 rounded-full px-1">
-              {eventsOnDate.length}
-            </span>
-          )}
-        </div>
-      );
+  const getDaysInMonth = (year, month) => {
+    let days = [];
+    let date = new Date(year, month, 1);
+    while (date.getMonth() === month) {
+      days.push(new Date(date));
+      date.setDate(date.getDate() + 1);
     }
-    return null;
+    return days;
   };
 
-  const getTileClassName = ({ date }) => {
-    const formattedDate = formatDateToUTC(date);
-    const hasEvent = events.some((event) => event.date === formattedDate);
-    const isCurrentDate = date.toDateString() === new Date().toDateString();
+  const formatDate = (date) =>
+    `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 
-    return `
-      ${hasEvent ? 'event-tile' : ''} 
-      ${isCurrentDate ? 'current-date' : ''} 
-      hover:bg-blue-100 rounded-lg transition-colors duration-200
-    `;
+  const daysInMonth = getDaysInMonth(currentMonth.getFullYear(), currentMonth.getMonth());
+  const startDay = daysInMonth[0].getDay();
+  const prevMonthDays = [...Array(startDay)].map(() => null);
+  const formattedDays = [...prevMonthDays, ...daysInMonth];
+
+  const handleMonthChange = (increment) => {
+    setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + increment, 1));
   };
 
-  const handleDayClick = (date) => {
-    const formattedDate = formatDateToUTC(date);
-    const eventsOnDate = events.filter((event) => event.date === formattedDate);
+  const handleYearChange = (increment) => {
+    setCurrentMonth(new Date(currentMonth.getFullYear() + increment, currentMonth.getMonth(), 1));
+  };
+
+  const hasEvent = (date) => events.filter((event) => event.date === formatDate(date)).length;
+
+  const handleDateClick = (date) => {
     setSelectedDate(date);
-    setSelectedEvents(eventsOnDate);
   };
 
   const openModal = (image) => {
@@ -120,137 +60,91 @@ const CalendarComponent = () => {
     setModalImage(null);
   };
 
-  const EventDetails = ({ events }) => {
-    if (!events || events.length === 0) return null;
+  return (
+    <div className="min-h-screen bg-gray-100 p-6">
+      <Helmet>
+        <title>Book World Events</title>
+      </Helmet>
 
-    return (
-      <div className="bg-white p-6 rounded-lg shadow-lg space-y-8">
-        {events.map((event, index) => (
-          <div key={index}>
-            {event.image && (
-              <img
-                src={event.image}
-                alt={event.alt || 'Event image'}
-                className="w-full h-64 object-contain rounded-lg shadow-md mb-4 cursor-pointer"
-                loading={event.loading || 'lazy'}
-                onClick={() => openModal(event.image)}
-              />
-            )}
-            <h2 className="text-2xl font-bold text-blue-800 mb-4">{event.title}</h2>
-            {event.details.description && (
-              <p className="text-gray-600 mb-4 italic">{event.details.description}</p>
-            )}
+      {/* Page Title */}
+      <h1 className="text-4xl font-bold text-center text-[#2b347c] mb-6">Book World Events</h1>
 
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2 text-sm text-gray-700">
-                <CalendarIcon className="w-5 h-5 text-blue-700" />
-                <p>
-                  {new Date(event.date).toLocaleDateString('en-US', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </p>
-              </div>
-
-              <div className="text-sm grid grid-cols-2 gap-4">
-                <div>
-                  <h3 className="font-semibold text-blue-700">Venue</h3>
-                  <p>{event.details.venue}</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-blue-700">Time</h3>
-                  <p>{event.details.time}</p>
-                </div>
-              </div>
-
-              {event.details.dressCode && (
-                <div>
-                  <h3 className="font-semibold text-blue-700">Dress Code</h3>
-                  <p className="text-gray-700">{event.details.dressCode}</p>
-                </div>
-              )}
-
-              {event.details.specialGuests && (
-                <div>
-                  <h3 className="font-semibold text-blue-700">Special Guests</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    {event.details.specialGuests.map((guest, idx) => (
-                      <li key={idx} className="text-gray-700">
-                        {guest}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Calendar Section */}
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex gap-2">
+              <button onClick={() => handleYearChange(-1)} className="text-lg font-semibold text-blue-700">&laquo; Prev Year</button>
+              <button onClick={() => handleMonthChange(-1)} className="text-lg font-semibold text-blue-700">&larr; Prev Month</button>
+            </div>
+            <h2 className="text-xl font-bold text-gray-800">{currentMonth.toLocaleString("default", { month: "long", year: "numeric" })}</h2>
+            <div className="flex gap-2">
+              <button onClick={() => handleMonthChange(1)} className="text-lg font-semibold text-blue-700">Next Month &rarr;</button>
+              <button onClick={() => handleYearChange(1)} className="text-lg font-semibold text-blue-700">Next Year &raquo;</button>
             </div>
           </div>
-        ))}
-      </div>
-    );
-  };
 
-  return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-50 to-blue-100 p-6">
-      <Helmet>
-        <title>Book World Activities</title>
-        <meta
-          name="description"
-          content="Stay updated on community events organized by the Office of Kgosana Koketso Rakhudu, including sustainable farming programs and community awards."
-        />
-      </Helmet>
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-center text-3xl font-serif font-bold text-blue-800 mb-8">
-        Book World Activities
-        </h2>
+          {/* Calendar Grid */}
+          <div className="grid grid-cols-7 gap-2 text-center">
+            {daysOfWeek.map((day, index) => (
+              <div key={index} className="font-semibold text-gray-600">{day}</div>
+            ))}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white p-6 rounded-lg shadow-xl">
-            <Calendar
-              onClickDay={handleDayClick}
-              tileClassName={getTileClassName}
-              tileContent={getTileContent}
-              className="rounded-lg shadow-md p-4"
-              value={selectedDate}
-            />
-          </div>
-
-          <div className="h-full">
-            {selectedEvents.length > 0 ? (
-              <EventDetails events={selectedEvents} />
-            ) : (
-              <div className="bg-white p-6 rounded-lg shadow-lg h-full flex items-center justify-center">
-                <div className="text-center">
-                  <CalendarIcon className="w-12 h-12 text-blue-600 mb-4" />
-                  <p className="text-gray-700 font-semibold">
-                    Select a date to view event details
-                  </p>
-                </div>
+            {formattedDays.map((date, index) => (
+              <div
+                key={index}
+                className={`h-16 flex flex-col justify-center items-center rounded-lg transition cursor-pointer
+                  ${date ? "bg-gray-50 hover:bg-blue-100" : "bg-transparent"}
+                  ${date && date.toDateString() === new Date().toDateString() && "bg-blue-200 text-blue-800"}
+                  ${date && hasEvent(date) && "ring-2 ring-blue-600"}`}
+                onClick={() => date && handleDateClick(date)}
+              >
+                {date && <span className="text-sm font-medium text-gray-800">{date.getDate()}</span>}
+                {date && hasEvent(date) > 0 && (
+                  <span className="text-xs bg-blue-600 text-white rounded-full px-2 mt-1">{hasEvent(date)} Events</span>
+                )}
               </div>
-            )}
+            ))}
           </div>
+        </div>
+
+        {/* Events Section */}
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          {selectedDate ? (
+            <div>
+              <h2 className="text-lg font-bold text-gray-800 mb-4">
+                Events on{" "}
+                {selectedDate.toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}
+              </h2>
+              {events
+                .filter((event) => event.date === formatDate(selectedDate))
+                .map((event, index) => (
+                  <div key={index} className="mb-6">
+                    <h3 className="font-semibold text-blue-700">{event.title}</h3>
+                    <p className="text-gray-600">{event.details}</p>
+                    {event.image && (
+                      <img
+                        src={event.image}
+                        alt={event.title}
+                        className="mt-4 w-full h-48 object-contain rounded-lg shadow-lg cursor-pointer"
+                        onClick={() => openModal(event.image)}
+                      />
+                    )}
+                  </div>
+                ))}
+            </div>
+          ) : (
+            <p className="text-gray-700 text-center">Select a date to view events.</p>
+          )}
         </div>
       </div>
 
-      {/* Modal for Image */}
+      {/* Image Modal */}
       {modalImage && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
-          onClick={closeModal}
-        >
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" onClick={closeModal}>
           <div className="relative bg-white p-4 rounded-lg shadow-lg max-w-full max-h-screen">
-            <button
-              onClick={closeModal}
-              className="absolute top-2 right-2 text-red-600 hover:text-red-800 text-4xl font-bold focus:outline-none"
-            >
-              &times;
-            </button>
-            <img
-              src={modalImage}
-              alt="Enlarged event"
-              className="w-auto max-w-full max-h-screen rounded-lg object-contain"
-            />
+            <button onClick={closeModal} className="absolute top-2 right-2 text-red-600 hover:text-red-800 text-4xl font-bold focus:outline-none">&times;</button>
+            <img src={modalImage} alt="Event" className="w-auto max-w-full max-h-screen rounded-lg object-contain" />
           </div>
         </div>
       )}
