@@ -11,19 +11,19 @@ const functionGroups = [
   {
     name: "Book Donation",
     description: "Distributing books to underserved communities across South Africa.",
-    image: "/images/BookDonation.jpg",
+    image: "/images/ReadingPromotion.jpg",
     link: "/book-donation",
   },
   {
     name: "Literacy Development",
-    description: "Promoting literacy through clubs and educational programs.",
-    image: "/images/LiteracyDevelopment.jpg",
+    description: "Promoting literacy through clubs and educational programmes.",
+    image: "/images/LiteracyFascilitators.jpg",
     link: "/literacy-development",
   },
   {
     name: "Library Functionality",
     description: "Supporting libraries to improve their resources and reach.",
-    image: "/images/LibraryFunctionality.jpg",
+    image: "/images/Library.jpg",
     link: "/library-functionality",
   },
   {
@@ -53,7 +53,7 @@ const FunctionGroupsPage = () => {
               <img
                 src={group.image}
                 alt={group.name}
-                className="w-full h-48 object-contain"
+                className="w-full h-48 object-cover"
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-[#2b347c] mb-2">

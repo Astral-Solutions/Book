@@ -6,7 +6,7 @@ function ImpactPage() {
   const stats = [
     { label: "Books Donated", value: 3000 },
     { label: "Communities Impacted", value: 200 },
-    { label: "Programs Conducted", value: 50 },
+    { label: "programmes Conducted", value: 50 },
   ];
 
   return (
@@ -16,7 +16,7 @@ function ImpactPage() {
           <h1 className="text-4xl font-bold text-[#2b347c] mb-4">Our Impact</h1>
           <p className="text-lg text-gray-700">
             At Book World, we're proud of the difference we've made in our
-            communities through books, literacy programs, and youth empowerment.
+            communities through books, literacy programmes, and youth empowerment.
           </p>
         </header>
 
@@ -44,7 +44,7 @@ function ImpactPage() {
               </h3>
               <p className="text-gray-600">
                 Supported 16 Early Childhood Development (ECD) centers with
-                foundational literacy programs.
+                foundational literacy programmes.
               </p>
             </motion.div>
             <motion.div

@@ -15,8 +15,8 @@ function About() {
     },
     {
       year: "2020",
-      event: "Launched the first Early Literacy Program, impacting children in 5 communities.",
-      details: "Our Early Literacy Program focused on foundational reading skills for children aged 0–6, helping them achieve early academic success.",
+      event: "Launched the first Early Literacy programme, impacting children in 5 communities.",
+      details: "Our Early Literacy programme focused on foundational reading skills for children aged 0–6, helping them achieve early academic success.",
       icon: "🌟",
       image: "/images/milestone2020.jpg",
     },
@@ -37,13 +37,13 @@ function About() {
     {
       year: "2023",
       event: "Donated 3,000 books to children in rural areas and trained 100 youth as literacy facilitators.",
-      details: "The donation campaign empowered thousands of children, while the facilitator training program provided skills and employment opportunities.",
+      details: "The donation campaign empowered thousands of children, while the facilitator training programme provided skills and employment opportunities.",
       icon: "📖",
       image: "/images/milestone2023.jpg",
     },
     {
       year: "2024",
-      event: "Collaborated with corporate sponsors to bring books and literacy programs to 2,360 learners across schools.",
+      event: "Collaborated with corporate sponsors to bring books and literacy programmes to 2,360 learners across schools.",
       details: "Partnerships with companies expanded our reach, allowing us to positively impact thousands of learners.",
       icon: "🏫",
       image: "/images/milestone2024.jpg",
@@ -64,11 +64,11 @@ function About() {
         <title>About Book World | Inspiring a Love for Reading</title>
         <meta
           name="description"
-          content="Learn about Book World, a South African organization dedicated to empowering children and youth through literacy programs, book donations, and community engagement."
+          content="Learn about Book World, a South African organization dedicated to empowering children and youth through literacy programmes, book donations, and community engagement."
         />
         <meta
           name="keywords"
-          content="Book World, Literacy Development, Early Literacy Programs, Book Donations, Community Engagement, South Africa"
+          content="Book World, Literacy Development, Early Literacy programmes, Book Donations, Community Engagement, South Africa"
         />
       </Helmet>
 

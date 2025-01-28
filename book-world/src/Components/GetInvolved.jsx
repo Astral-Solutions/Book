@@ -9,7 +9,7 @@ const GetInvolvedPage = () => {
           Get Involved
         </h1>
         <p className="text-lg text-gray-700 mb-12 text-center">
-          Join us in making a difference! Whether it's volunteering, donating, or participating in our programs, your support helps us bring books, literacy, and opportunities to underserved communities.
+          Join us in making a difference! Whether it's volunteering, donating, or participating in our programmes, your support helps us bring books, literacy, and opportunities to underserved communities.
         </p>
 
         {/* Sections */}
@@ -18,7 +18,7 @@ const GetInvolvedPage = () => {
           <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 text-center">
             <h2 className="text-2xl font-bold text-[#2b347c] mb-4">Volunteer</h2>
             <p className="text-gray-600 mb-4">
-              Become a part of our mission by joining as a volunteer. Assist in book distributions, literacy programs, or community events.
+              Become a part of our mission by joining as a volunteer. Assist in book distributions, literacy programmes, or community events.
             </p>
             <Link
               to="/volunteer"
