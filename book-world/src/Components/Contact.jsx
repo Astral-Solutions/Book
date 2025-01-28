@@ -48,78 +48,100 @@ function Contact() {
               src="/images/BookWorldLogo.png" 
               alt="Book World Logo" 
               loading= "lazy"
-              className="mx-auto w-40 h-40 rounded-full mb-4 shadow-lg border-4 border-white"
+              className="mx-auto w-40 h-40 full mb-4 shadow-lg border-4 border-white"
             />
         </div>
       </section>
 
       <div className="container mx-auto px-6 py-12">
-        {/* Contact Information */}
-        <section className="text-center mt-8">
-          <h2 className="text-2xl font-semibold mb-8 text-[#2b347c]">
-            Get in Touch
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <FaMapMarkerAlt className="text-[#2b347c] text-2xl mx-auto mb-4" />
-              <h3 className="font-semibold mb-2">Address</h3>
-              <p className="text-gray-700">
-                E387 Church Street, Saron <br />
-                Phokeng 0335, Rustenburg Local Municipality
-              </p>
-            </div>
+      {/* Contact Information */}
+<section className="text-center mt-8">
+  <h2 className="text-2xl font-semibold mb-8 text-[#2b347c]">
+    Get in Touch
+  </h2>
+  <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+    
+    {/* Phokeng Office */}
+    <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+      <FaMapMarkerAlt className="text-[#2b347c] text-2xl mx-auto mb-4" />
+      <h3 className="font-semibold text-[#2b347c] mb-2">Phokeng Office</h3>
+      <a
+        href="https://www.google.com/maps?q=-25.574719,27.151315"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[#2b347c] hover:underline"
+      >
+        <p className="text-gray-700">
+          E387 Church Street, Saron <br />
+          Phokeng 0335, Rustenburg Local Municipality
+        </p>
+      </a>
+    </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <FaPhoneAlt className="text-[#2b347c] text-2xl mx-auto mb-4" />
-              <h3 className="font-semibold mb-2">Phone Numbers</h3>
-              <p className="text-gray-700">
-                Office:{" "}
-                <a
-                  href="tel:+27639289634"
-                  className="text-[#2b347c] hover:underline"
-                >
-                  +27 63 928 9634
-                </a>
-              </p>
-              <p className="text-gray-700">
-                Managing Director:{" "}
-                <a
-                  href="tel:+27632839036"
-                  className="text-[#2b347c] hover:underline"
-                >
-                  +27 63 283 9036
-                </a>
-              </p>
-            </div>
+    {/* Rustenburg Office */}
+    <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+      <FaMapMarkerAlt className="text-[#2b347c] text-2xl mx-auto mb-4" />
+      <h3 className="font-semibold text-[#2b347c] mb-2">Rustenburg Office</h3>
+      <a
+        href="https://www.google.com/maps?q=48+Steen+Street,+Rustenburg"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[#2b347c] hover:underline"
+      >
+        <p className="text-gray-700">
+          48 Steen Street, Rustenburg <br /> 
+          Rustenburg 0300, Rustenburg Local Municipality
+        </p>
+      </a>
+    </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <FaEnvelope className="text-[#2b347c] text-2xl mx-auto mb-4" />
-              <h3 className="font-semibold mb-2">Email</h3>
-              <a
-                href="mailto:nmilanzi@bookworld.org.za"
-                className="text-[#2b347c] hover:underline"
-              >
-                nmilanzi@bookworld.org.za
-              </a>
-            </div>
-          </div>
-        </section>
+    {/* Phone Section */}
+    <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+      <FaPhoneAlt className="text-[#2b347c] text-2xl mx-auto mb-4" />
+      <h3 className="font-semibold text-[#2b347c] mb-2">Phone Numbers</h3>
+      <p className="text-gray-700">
+        Office:{" "}
+        <a
+          href="tel:+27639289634"
+          className="text-[#2b347c] hover:underline"
+        >
+          +27 63 928 9634
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
 
-        {/* Social Media Section */}
-        <section className="text-center mt-12">
-          <h2 className="text-2xl font-semibold text-[#2b347c] mb-4">
-            Follow Us on Social Media
-          </h2>
-          <a
-            href="https://web.facebook.com/DRLETMETALKGROUPEDU/?_rdc=1&_rdr#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[#2b347c] hover:underline"
-          >
-            <FaFacebook className="text-2xl" />
-            Facebook: Book World
-          </a>
-        </section>
+{/* Email Section */}
+<section className="text-center mt-8">
+  <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow max-w-md mx-auto">
+    <FaEnvelope className="text-[#2b347c] text-2xl mx-auto mb-4" />
+    <h3 className="font-semibold text-[#2b347c] mb-2">Email</h3>
+    <a
+      href="mailto:info@bookworld.org.za"
+      className="text-[#2b347c] hover:underline"
+    >
+      info@bookworld.org.za
+    </a>
+  </div>
+</section>
+
+{/* Social Media Section */}
+<section className="text-center mt-12">
+  <h2 className="text-2xl font-semibold text-[#2b347c] mb-4">
+    Follow Us on Social Media
+  </h2>
+  <a
+    href="https://web.facebook.com/DRLETMETALKGROUPEDU/?_rdc=1&_rdr#"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2 text-[#2b347c] hover:underline"
+  >
+    <FaFacebook className="text-2xl" />
+    Facebook: Book World
+  </a>
+</section>
+
 
         {/* Contact Form */}
         {/* <section className="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-lg mt-16 relative overflow-hidden">
