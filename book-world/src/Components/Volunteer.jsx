@@ -38,7 +38,7 @@ const VolunteerPage = () => {
       <section className="mb-12">
         <h2 className="text-2xl font-semibold text-[#2b347c] mb-4">Why Volunteer?</h2>
         <ul className="list-disc pl-6 text-gray-700 space-y-2">
-          <li>Make a tangible impact on children’s lives through literacy programs.</li>
+          <li>Make a tangible impact on children’s lives through literacy programmes.</li>
           <li>Build meaningful connections with communities and like-minded individuals.</li>
           <li>Gain valuable experience in education and social work.</li>
           <li>Contribute to reducing literacy inequality in underserved areas.</li>
