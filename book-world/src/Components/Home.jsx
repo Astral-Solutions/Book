@@ -57,7 +57,7 @@ function Home() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
-              {/* <Link
+              <Link
                 to="/donate"
                 className="inline-flex items-center gap-2 px-8 py-3 bg-[#2b347c] text-white rounded-full hover:bg-[#1a2d6b] transition-colors duration-300"
               >
@@ -68,7 +68,7 @@ function Home() {
                 className="inline-flex items-center gap-2 px-8 py-3 bg-[#2b347c] text-white rounded-full hover:bg-[#1a2d6b] transition-colors duration-300"
               >
                 Volunteer Now
-              </Link> */}
+              </Link>
             </motion.div>
           </div>
         </div>
@@ -80,7 +80,7 @@ function Home() {
           Welcome to Book World
         </h2>
         <p className="text-lg text-gray-700 text-center max-w-3xl mx-auto">
-          Book World is a South African organization dedicated to sparking a love for reading in children and youth. Through innovative literacy programs, book donations, and youth empowerment initiatives, we aim to nurture a culture of literacy from the earliest stages of life. Together, we can ensure that every child has access to books and the opportunity to unlock their full potential.
+          Book World is a South African organization dedicated to sparking a love for reading in children and youth. Through innovative literacy programmes, book donations, and youth empowerment initiatives, we aim to nurture a culture of literacy from the earliest stages of life. Together, we can ensure that every child has access to books and the opportunity to unlock their full potential.
         </p>
       </section>
 
@@ -108,15 +108,15 @@ function Home() {
         </div>
       </section>
 
-      {/* Programs Highlight Section */}
+      {/* programmes Highlight Section */}
       <section className="container mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold text-center text-[#2b347c] mb-6">
-          Programs Highlight
+          programmes Highlight
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           <FeatureCard
             icon={Users}
-            title="Early Literacy Program"
+            title="Early Literacy programme"
             description="Combining phonics and comprehension for ages 0–16."
           />
           <FeatureCard
@@ -127,7 +127,7 @@ function Home() {
           <FeatureCard
             icon={Calendar}
             title="Literature Clubs"
-            description="Fostering a love for books through engaging community programs."
+            description="Fostering a love for books through engaging community programmes."
           />
         </div>
       </section>
