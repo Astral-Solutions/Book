@@ -28,6 +28,14 @@ function Footer() {
             </li>
             <li>
               <Link
+                to="/calendar"
+                className="text-sm text-gray-300 hover:text-gray-100 transition"
+              >
+                Calendar
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/function-groups"
                 className="text-sm text-gray-300 hover:text-gray-100 transition"
               >
