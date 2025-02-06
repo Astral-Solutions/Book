@@ -7,6 +7,12 @@ function BookDevelopment() {
         <h1 className="text-4xl font-bold text-[#2b347c] text-center mb-6">
           Book Development
         </h1>
+        <img
+          src="/images/Petronella.jpg"
+          alt="Book Development Lead"
+          loading="lazy"
+          className="mx-auto w-40 h-60 contain mb-4 shadow-lg border-4 border-white"
+        />
         <p className="text-lg text-gray-700 text-center max-w-3xl mx-auto mb-12">
           At Book World, we believe in creating books that resonate with children and youth in South Africa. Through culturally relevant and inspiring content, we aim to nurture a love for reading while preserving local languages and traditions. Books play an essential role in shaping a child's worldview, and we want to ensure that every child has access to literature that speaks to their heart, their culture, and their future.
         </p>

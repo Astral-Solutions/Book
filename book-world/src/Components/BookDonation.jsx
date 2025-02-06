@@ -7,6 +7,12 @@ function BookDonation() {
         <h1 className="text-4xl font-bold text-[#2b347c] text-center mb-6">
           Book Donation
         </h1>
+        <img
+          src="/images/Rosa.jpg"
+          alt="Book Donation Lead"
+          loading="lazy"
+          className="mx-auto w-40 h-60 contain mb-4 shadow-lg border-4 border-white"
+        />
         <p className="text-lg text-gray-700 text-center max-w-3xl mx-auto mb-12">
           Books have the power to transform lives, ignite imaginations, and open doors to new possibilities. At Book World, our Book Donation initiative is designed to ensure that every child in South Africa has access to a personal collection of books. Through our book donation drives, we are working to foster a culture of reading, learning, and discovery—one book at a time.
         </p>

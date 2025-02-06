@@ -7,6 +7,12 @@ function LibraryFunctionality() {
         <h1 className="text-4xl font-bold text-[#2b347c] mb-4">
           Library Functionality
         </h1>
+        <img
+          src="/images/Amasio.jpg"
+          alt="Library Functionality Lead"
+          loading="lazy"
+          className="mx-auto w-40 h-60 contain mb-4 shadow-lg border-4 border-white"
+        />
         <p className="text-lg text-gray-700">
           Supporting libraries to improve their resources and reach.
         </p>
