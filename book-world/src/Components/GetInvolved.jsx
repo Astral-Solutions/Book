@@ -10,10 +10,10 @@ const GetInvolvedPage = () => {
         </h1>
         
         <img
-  src="/images/LiteracyDevelopment.jpg"
+  src="/images/Reading.jpg"
   alt="Book World impact"
   loading="lazy"
-  className="mx-auto max-w-md h-auto object-cover shadow-lg border-4 border-white"
+  className="mx-auto max-w-60 h-80 object-contain shadow-lg"
 />
         <p className="text-lg text-gray-700 mb-12 text-center">
           Join us in making a difference! Whether it's volunteering, donating, or participating in our programmes, your support helps us bring books, literacy, and opportunities to underserved communities.

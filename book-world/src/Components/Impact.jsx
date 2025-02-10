@@ -15,12 +15,12 @@ function ImpactPage() {
         <header className="text-center mb-12">
           <h1 className="text-4xl font-bold text-[#2b347c] mb-4">Our Impact</h1>
           
-          <img
+          {/* <img
   src="/images/GetInvolved.jpg"
   alt="Book World Literacy Fascilitators"
   loading="lazy"
   className="mx-auto max-w-40 h-60 object-cover shadow-lg border-4 border-white"
-/>
+/> */}
           <p className="text-lg text-gray-700">
             At Book World, we're proud of the difference we've made in our
             communities through books, literacy programmes, and youth empowerment.
