@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 const GetInvolvedPage = () => {
   return (
     <div className="get-involved-page bg-white min-h-screen py-12 px-6">
-      <div className="container mx-auto">
-        <h1 className="text-4xl font-bold text-[#2b347c] mb-6 text-center">
-          Get Involved
-        </h1>
-        
-        <img
-  src="/images/Reading.jpg"
-  alt="Book World impact"
-  loading="lazy"
-  className="mx-auto max-w-60 h-80 object-contain shadow-lg"
-/>
+  <div className="container mx-auto">
+    <h1 className="text-4xl font-bold text-[#2b347c] mb-6 text-center">
+      Get Involved
+    </h1>
+
+    <img
+      src="/images/Reading.jpg"
+      alt="Book World impact"
+      loading="lazy"
+      className="mx-auto w-full sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain shadow-lg rounded-lg"
+    />
         <p className="text-lg text-gray-700 mb-12 text-center">
           Join us in making a difference! Whether it's volunteering, donating, or participating in our programmes, your support helps us bring books, literacy, and opportunities to underserved communities.
         </p>
