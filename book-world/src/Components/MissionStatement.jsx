@@ -60,6 +60,13 @@ function MissionStatement() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
+          <img
+  src="/images/MissionStatement.jpg"
+  alt="Book World Stakeholders"
+  loading="lazy"
+  className="mx-auto max-w-md h-auto object-cover shadow-lg border-4 border-white"
+/>
+
           "Our mission is to provide access to books, promote a reading culture, and equip youth with literacy skills for a lifetime. By
           creating book-rich environments and empowering communities, we aim to ensure that every child, regardless of their circumstances, has
           the chance to succeed through literacy."

@@ -28,7 +28,7 @@ function Home() {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 z-10"></div>
         <img
-          src="/images/BWTeam.jpg"
+          src="/images/LiteracyFascilitators.jpg"
           alt="Book World Team"
           loading="lazy"
           className="w-full h-full object-contain"

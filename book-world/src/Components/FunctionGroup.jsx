@@ -23,13 +23,13 @@ const functionGroups = [
   {
     name: "Library Functionality",
     description: "Supporting libraries to improve their resources and reach.",
-    image: "/images/Library.jpg",
+    image: "/images/Nest.jpg",
     link: "/library-functionality",
   },
   {
     name: "Reading Promotion",
     description: "Encouraging reading as a lifestyle through events and campaigns.",
-    image: "/images/ReadingPromotion.jpg",
+    image: "/images/WRAD.jpg",
     link: "/reading-promotion",
   },
 ];
@@ -53,7 +53,7 @@ const FunctionGroupsPage = () => {
               <img
                 src={group.image}
                 alt={group.name}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-contain"
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-[#2b347c] mb-2">

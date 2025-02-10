@@ -86,6 +86,13 @@ function About() {
 
       {/* Intro Section */}
       <section className="text-center mb-12">
+      <img
+  src="/images/About.jpg"
+  alt="Lu playing with children"
+  loading="lazy"
+  className="mx-auto max-w-md h-auto object-cover shadow-lg border-4 border-white"
+/>
+
         <p className="text-lg text-gray-700">
           "At Book World, we believe that literacy is the foundation for personal growth, community development, and societal transformation.
           Since 2019, we’ve been at the forefront of combating literacy challenges in South Africa by ensuring children and youth have access
