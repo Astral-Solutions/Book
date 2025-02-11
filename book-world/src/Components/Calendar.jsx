@@ -3,14 +3,14 @@ import { Helmet } from "react-helmet";
 import { Calendar as CalendarIcon } from "lucide-react";
 
 const events = [
-  { date: "2025-02-05", title: "World Read Aloud Day", details: "Celebrating World Read Aloud Day at Kana Primary school with Book World", image: "/images/BookWorldTeam.jpg" },
-  { date: "2025-02-10", title: "Back to School Campaign", details: "Back to school activation in Cape Town with Book World", image: "/images/BookWorldTeam.jpg" },
-  { date: "2025-02-11", title: "Back to School Campaign", details: "Back to school activation in Cape Town with Book World", image: "/images/BookWorldTeam.jpg" },
-  { date: "2025-02-12", title: "Back to School Campaign", details: "Back to school activation in Cape Town with Book World", image: "/images/BookWorldTeam.jpg" },
-  { date: "2025-02-13", title: "Back to School Campaign", details: "Back to School activation in Free State With Book World", image: "/images/BookWorldTeam.jpg" },
-  { date: "2025-02-14", title: "Back to School Campaign", details: "Back to School activation in Free State With Book World", image: "/images/BookWorldTeam.jpg" },
+  { date: "2025-02-05", title: "World Read Aloud Day", details: "Celebrating World Read Aloud Day at Kana Primary school with Book World", image: "/images/WRA05.jpg" },
+  { date: "2025-02-10", title: "Back to School Campaign", details: "Back to school activation in Cape Town with Book World", image: "/images/BackToSchool.jpg" },
+  { date: "2025-02-11", title: "Back to School Campaign", details: "Back to school activation in Cape Town with Book World", image: "/images/WorldReadAloudCPT.jpg" },
+  { date: "2025-02-12", title: "Back to School Campaign", details: "Back to school activation in Cape Town with Book World", image: "/images/WorldReadAloudCPT.jpg" },
+  { date: "2025-02-13", title: "Back to School Campaign", details: "Back to School activation in Free State With Book World", image: "/images/BackToSchool.jpg" },
+  { date: "2025-02-14", title: "Back to School Campaign", details: "Back to School activation in Free State With Book World", image: "/images/WorldReadAloudCPT.jpg" },
   { date: "2025-02-14", title: "Blind-Date With a Book", details: "Launching Blind-Date with a book at Stook Koffie Roostery in partnership with Rustenburg Library and Information Services 📚✨ Join us for a surprise book adventure! 📖☕", image: "/images/BlindDateWithABook.png" }
-  
+
 ];
 
 const CalendarComponent = () => {
