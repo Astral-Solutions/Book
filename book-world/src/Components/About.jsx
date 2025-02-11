@@ -54,21 +54,13 @@ function About() {
     setSelectedMilestone(milestone);
   };
 
-  const closeModal = () => {
-    setSelectedMilestone(null);
-  };
-
   return (
-    <div className="container mx-auto px-6 py-12">
+    <div className="container mx-auto px-4 sm:px-6 md:px-12 py-12">
       <Helmet>
         <title>About Book World | Inspiring a Love for Reading</title>
         <meta
           name="description"
           content="Learn about Book World, a South African organization dedicated to empowering children and youth through literacy programmes, book donations, and community engagement."
-        />
-        <meta
-          name="keywords"
-          content="Book World, Literacy Development, Early Literacy programmes, Book Donations, Community Engagement, South Africa"
         />
       </Helmet>
 
@@ -86,86 +78,55 @@ function About() {
 
       {/* Intro Section */}
       <section className="text-center mb-12">
-  <img
-    src="/images/About.jpg"
-    alt="Lu playing with children"
-    loading="lazy"
-    className="mx-auto w-full sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-cover shadow-lg border-4 border-white rounded-lg"
-  />
-</section>
-
-
-        <p className="text-lg text-gray-700">
-          "At Book World, we believe that literacy is the foundation for personal growth, community development, and societal transformation.
-          Since 2019, we’ve been at the forefront of combating literacy challenges in South Africa by ensuring children and youth have access
-          to books, a reading-friendly environment, and passionate literacy facilitators."
-        </p>
+        <img
+          src="/images/About.jpg"
+          alt="Lu playing with children"
+          loading="lazy"
+          className="mx-auto w-full sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-cover shadow-lg border-4 border-white rounded-lg"
+        />
       </section>
+
+      <p className="text-lg text-gray-700 text-center">
+        "At Book World, we believe that literacy is the foundation for personal growth, community development, and societal transformation.
+        Since 2019, we’ve been at the forefront of combating literacy challenges in South Africa by ensuring children and youth have access
+        to books, a reading-friendly environment, and passionate literacy facilitators."
+      </p>
 
       {/* Who We Are Section */}
-      <section className="mb-12">
+      <section className="my-12">
         <h2 className="text-3xl font-semibold text-[#2b347c] mb-6">Who We Are</h2>
         <p className="text-gray-700">
-          "Book World is more than a book donation organization. We are a social impact movement that redefines literacy as a lifestyle.
-          We bring together educators, youth volunteers, and communities to inspire a love for reading. Our mission is fueled by the belief
-          that books can open doors to imagination, creativity, and success."
+          "Book World is more than a book donation organization. We are a social impact movement that redefines literacy as a lifestyle."
         </p>
-      </section>
-
-      {/* Our Approach Section */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-semibold text-[#2b347c] mb-6">Our Approach</h2>
-        <ul className="list-disc list-inside text-gray-700 space-y-4">
-          <li>
-            <strong>Balanced Literacy Framework:</strong> Combining phonics and comprehension for a holistic reading experience.
-          </li>
-          <li>
-            <strong>Youth Empowerment:</strong> Training unemployed youth to become literacy ambassadors.
-          </li>
-          <li>
-            <strong>Community Engagement:</strong> Establishing Literature Clubs (LitClubs) in schools, homes, and community centers.
-          </li>
-        </ul>
       </section>
 
       {/* Our History Section */}
       <section className="mt-12">
         <h2 className="text-3xl font-bold text-[#2b347c] mb-6">Our History</h2>
         <p className="text-gray-700 mb-8">
-          "Founded in 2019, Book World has grown from a small initiative into a thriving organization. From hosting World Book Day events to
-          launching Literature Clubs in ECD centers, we’ve consistently brought communities together around the power of books. Our book
+          "Founded in 2019, Book World has grown from a small initiative into a thriving organization. Our book
           donation drives and partnerships have reached over 10,000 children and youth in rural and underserved communities."
         </p>
-        <div className="relative border-l-4 border-[#2b347c]">
+        <div className="relative border-l-4 border-[#2b347c] pl-6">
           {milestones.map((milestone, index) => (
             <motion.div
               key={index}
-              className="mb-8 ml-6 relative group flex items-start"
+              className="mb-8 relative flex items-center cursor-pointer"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               onClick={() => handleMilestoneClick(milestone)}
             >
-              <div className="flex-1 bg-white p-4 rounded-lg shadow-md cursor-pointer hover:bg-[#2b347c]/10 transition">
-                <p className="text-gray-700 group-hover:text-[#2b347c]">{milestone.event}</p>
-              </div>
-              <div className="ml-4 w-12 h-12 rounded-full bg-[#2b347c] text-white flex items-center justify-center cursor-pointer">
+              <div className="ml-4 w-14 h-14 rounded-full bg-[#2b347c] text-white flex items-center justify-center p-3">
                 {milestone.icon}
+              </div>
+              <div className="flex-1 bg-white p-4 rounded-lg shadow-md ml-4">
+                <p className="text-gray-700">{milestone.event}</p>
               </div>
             </motion.div>
           ))}
         </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="text-center mt-12">
-        <h2 className="text-3xl font-semibold text-[#2b347c] mb-4">Our Values</h2>
-        <ul className="list-disc list-inside text-gray-700">
-          <li><strong>Inclusivity:</strong> Ensuring everyone has access to books, regardless of their background.</li>
-          <li><strong>Sustainability:</strong> Creating long-term impact through literacy initiatives.</li>
-          <li><strong>Empowerment:</strong> Providing tools for individuals and communities to thrive.</li>
-        </ul>
       </section>
 
       {/* Call to Action */}
@@ -173,7 +134,7 @@ function About() {
         <h2 className="text-2xl font-semibold text-[#2b347c] mb-4">
           Join Us in Rewriting the Future
         </h2>
-        <p className="text-gray-700 mb-6">
+        <p className="text-gray-700">
           "Join us in rewriting the future for South African children. Together, we can make reading a lifestyle and a legacy."
         </p>
       </section>

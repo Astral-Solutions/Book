@@ -10,7 +10,7 @@ function Footer() {
         {/* Navigation Links */}
         <div className="w-full md:w-auto">
           <h2 className="text-lg font-bold mb-4">Quick Links</h2>
-          <ul className="flex flex-wrap gap-4 md:gap-6">
+          <ul className="flex flex-col md:flex-row gap-2 md:gap-6">
             {[
               { path: "/about", label: "About Us" },
               { path: "/mission-statement", label: "Mission Statement" },
