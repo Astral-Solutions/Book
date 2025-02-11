@@ -9,7 +9,7 @@ function LiteracyDevelopment() {
         </h1>
         <section className="text-center mb-12">
         <img
-          src="/images/Kgalalelo.jpg"
+          src="/images/LitDev.jpg"
           alt="Literacy Development Lead"
           loading="lazy"
           className="mx-auto w-full sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-cover shadow-lg border-4 border-white rounded-lg"
