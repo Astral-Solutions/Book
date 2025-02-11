@@ -7,12 +7,14 @@ function ReadingPromotion() {
         <h1 className="text-4xl font-bold text-[#2b347c] text-center mb-6">
           Reading Promotion
         </h1>
+        <section className="text-center mb-12">
         <img
           src="/images/Gomotsanang.jpg"
           alt="Reading Promotion Lead"
           loading="lazy"
-          className="mx-auto w-40 h-60 contain mb-4 shadow-lg border-4 border-white"
+          className="mx-auto w-full sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-cover shadow-lg border-4 border-white rounded-lg"
         />
+      </section>
         <p className="text-lg text-gray-700 text-center max-w-3xl mx-auto mb-12">
           Reading is a habit that transforms lives. At Book World, we organize
           events, campaigns, and digital initiatives to inspire a culture of

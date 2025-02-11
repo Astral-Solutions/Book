@@ -7,12 +7,14 @@ function LiteracyDevelopment() {
         <h1 className="text-4xl font-bold text-[#2b347c] text-center mb-6">
           Literacy Development
         </h1>
+        <section className="text-center mb-12">
         <img
           src="/images/Kgalalelo.jpg"
           alt="Literacy Development Lead"
           loading="lazy"
-          className="mx-auto w-40 h-60 contain mb-4 shadow-lg border-4 border-white"
+          className="mx-auto w-full sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-cover shadow-lg border-4 border-white rounded-lg"
         />
+      </section>
         <p className="text-lg text-gray-700 text-center max-w-3xl mx-auto mb-12">
           At Book World, we believe that literacy is the foundation of academic success and personal growth. Our Literacy Development initiatives are designed to equip children with the essential reading and writing skills they need to succeed, both academically and socially. Through these programmes, we aim to nurture young learners into confident readers and writers, empowering them to navigate the world around them with curiosity and critical thinking.
         </p>
