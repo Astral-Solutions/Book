@@ -32,6 +32,7 @@ function App() {
           <Route path="/function-groups" element={<FunctionGroupsPage />} />
           <Route path="/get-involved" element={<GetInvolvedPage />} />
 <<<<<<< HEAD
+<<<<<<< HEAD
           <Route path="/reading-promotion" element={<ReadingPromotion/>} />
           <Route path="/literacy-development" element={<LiteracyDevelopment/>} />
           <Route path="/library-functionality" element={<LibraryFunctionality/>} />
@@ -40,6 +41,8 @@ function App() {
           <Route path="/volunteer" element={<VolunteerPage/>} />
           <Route path="/donate" element={<DonationsPage/>} />
 =======
+=======
+>>>>>>> 6a8f1c1a284cbdf776a73656baa94887c1a83d13
           <Route path="/literacy-promotion" element={<LiteracyPromotion />} />
           <Route path="/literacy-development" element={<LiteracyDevelopment />} />
           <Route path="/literacy-hub-functionality" element={<LiteracyHubFunctionality />} />
@@ -47,6 +50,9 @@ function App() {
           <Route path="/literacy-material-development" element={<LiteracyMaterialDevelopment />} />
           <Route path="/volunteer" element={<VolunteerPage />} />
           <Route path="/donate" element={<DonationsPage />} />
+<<<<<<< HEAD
+>>>>>>> 6a8f1c1a284cbdf776a73656baa94887c1a83d13
+=======
 >>>>>>> 6a8f1c1a284cbdf776a73656baa94887c1a83d13
           <Route path="/contact" element={<Contact />} />
         </Routes>
