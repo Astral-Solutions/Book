@@ -17,6 +17,11 @@ import LiteracyMaterialDonation from "./Components/LiteracyMaterialDonation";
 import LiteracyHubFunctionality from "./Components/LiteracyHubFunctionality";
 import VolunteerPage from "./Components/Volunteer";
 import DonationsPage from "./Components/Donate";
+// Additional imports for the missing components from the first version
+import ReadingPromotion from "./Components/ReadingPromotion";
+import LibraryFunctionality from "./Components/LibraryFunctionality";
+import BookDonation from "./Components/BookDonation";
+import BookDevelopment from "./Components/BookDevelopment";
 
 function App() {
   return (
@@ -31,29 +36,23 @@ function App() {
           <Route path="/impact" element={<ImpactPage />} />
           <Route path="/function-groups" element={<FunctionGroupsPage />} />
           <Route path="/get-involved" element={<GetInvolvedPage />} />
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <Route path="/reading-promotion" element={<ReadingPromotion/>} />
-          <Route path="/literacy-development" element={<LiteracyDevelopment/>} />
-          <Route path="/library-functionality" element={<LibraryFunctionality/>} />
-          <Route path="/book-donation" element={<BookDonation/>} />
-          <Route path="/book-development" element={<BookDevelopment/>} />
-          <Route path="/volunteer" element={<VolunteerPage/>} />
-          <Route path="/donate" element={<DonationsPage/>} />
-=======
-=======
->>>>>>> 6a8f1c1a284cbdf776a73656baa94887c1a83d13
+          
+          {/* Routes from the first version */}
+          <Route path="/reading-promotion" element={<ReadingPromotion />} />
+          <Route path="/library-functionality" element={<LibraryFunctionality />} />
+          <Route path="/book-donation" element={<BookDonation />} />
+          <Route path="/book-development" element={<BookDevelopment />} />
+          
+          {/* Routes from the second version */}
           <Route path="/literacy-promotion" element={<LiteracyPromotion />} />
           <Route path="/literacy-development" element={<LiteracyDevelopment />} />
           <Route path="/literacy-hub-functionality" element={<LiteracyHubFunctionality />} />
           <Route path="/literacy-material-donation" element={<LiteracyMaterialDonation />} />
           <Route path="/literacy-material-development" element={<LiteracyMaterialDevelopment />} />
+          
+          {/* Common routes */}
           <Route path="/volunteer" element={<VolunteerPage />} />
           <Route path="/donate" element={<DonationsPage />} />
-<<<<<<< HEAD
->>>>>>> 6a8f1c1a284cbdf776a73656baa94887c1a83d13
-=======
->>>>>>> 6a8f1c1a284cbdf776a73656baa94887c1a83d13
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>
