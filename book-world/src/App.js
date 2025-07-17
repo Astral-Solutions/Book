@@ -17,11 +17,7 @@ import LiteracyMaterialDonation from "./Components/LiteracyMaterialDonation";
 import LiteracyHubFunctionality from "./Components/LiteracyHubFunctionality";
 import VolunteerPage from "./Components/Volunteer";
 import DonationsPage from "./Components/Donate";
-// Additional imports for the missing components from the first version
-import ReadingPromotion from "./Components/ReadingPromotion";
-import LibraryFunctionality from "./Components/LibraryFunctionality";
-import BookDonation from "./Components/BookDonation";
-import BookDevelopment from "./Components/BookDevelopment";
+// Note: ReadingPromotion, LibraryFunctionality, BookDonation, and BookDevelopment components don't exist
 
 function App() {
   return (
@@ -37,13 +33,7 @@ function App() {
           <Route path="/function-groups" element={<FunctionGroupsPage />} />
           <Route path="/get-involved" element={<GetInvolvedPage />} />
           
-          {/* Routes from the first version */}
-          <Route path="/reading-promotion" element={<ReadingPromotion />} />
-          <Route path="/library-functionality" element={<LibraryFunctionality />} />
-          <Route path="/book-donation" element={<BookDonation />} />
-          <Route path="/book-development" element={<BookDevelopment />} />
-          
-          {/* Routes from the second version */}
+          {/* Routes from the merged versions - removed non-existent components */}
           <Route path="/literacy-promotion" element={<LiteracyPromotion />} />
           <Route path="/literacy-development" element={<LiteracyDevelopment />} />
           <Route path="/literacy-hub-functionality" element={<LiteracyHubFunctionality />} />
