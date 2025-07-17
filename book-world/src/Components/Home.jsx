@@ -111,7 +111,7 @@ function Home() {
       {/* programmes Highlight Section */}
       <section className="container mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold text-center text-[#2b347c] mb-6">
-          programmes Highlight
+          Programmes Highlight
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           <FeatureCard
