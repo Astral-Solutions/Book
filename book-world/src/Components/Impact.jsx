@@ -105,7 +105,7 @@ function ImpactPage() {
               books and hope to our youth."
             </p>
             <p className="text-gray-800 font-semibold text-right mt-4">
-              – Community Leader
+              – Kgosana Dr Koketso Rakhudu - Kgosana of Tsitsing Village Royal Bafokeng Nation 
             </p>
           </div>
         </section>

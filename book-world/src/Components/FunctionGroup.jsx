@@ -3,34 +3,34 @@ import { Link } from "react-router-dom";
 
 const functionGroups = [
   {
-    name: "Book Development",
-    description: "Creating a library of culturally relevant books for children and youth.",
+    name: "Literacy Material Development",
+    description: "Creating culturally relevant, multilingual educational books for children and youth.",
     image: "/images/BookDevelopment.jpg",
-    link: "/book-development",
+    link: "/literacy-material-development",
   },
   {
-    name: "Book Donation",
-    description: "Distributing books to underserved communities across South Africa.",
+    name: "Literacy Material Donation",
+    description: "Providing free books and learning resources to children in underserved communities.",
     image: "/images/ReadingPromotion.jpg",
-    link: "/book-donation",
+    link: "/literacy-material-donation",
   },
   {
     name: "Literacy Development",
-    description: "Promoting literacy through clubs and educational programmes.",
+    description: "Improving reading, writing, and communication skills through structured facilitation.",
     image: "/images/LiteracyFascilitators.jpg",
     link: "/literacy-development",
   },
   {
-    name: "Library Functionality",
-    description: "Supporting libraries to improve their resources and reach.",
+    name: "Literacy Hub Functionality",
+    description: "Strengthening libraries and reading hubs to become community learning centers.",
     image: "/images/Nest.jpg",
-    link: "/library-functionality",
+    link: "/literacy-hub-functionality",
   },
   {
-    name: "Reading Promotion",
-    description: "Encouraging reading as a lifestyle through events and campaigns.",
+    name: "Literacy Promotion",
+    description: "Fostering a love of reading through storytelling, reading challenges, and outreach campaigns.",
     image: "/images/WRAD.jpg",
-    link: "/reading-promotion",
+    link: "/literacy-promotion",
   },
 ];
 
@@ -42,7 +42,7 @@ const FunctionGroupsPage = () => {
           Our Function Groups
         </h1>
         <p className="text-lg text-gray-700 mb-12 text-center">
-          Explore the key areas where Book World makes an impact through focused initiatives and community engagement.
+          Explore the five pillars of our literacy mission , each one designed to empower children and communities through the transformative power of books.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {functionGroups.map((group, index) => (

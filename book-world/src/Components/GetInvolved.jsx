@@ -10,7 +10,7 @@ const GetInvolvedPage = () => {
     </h1>
 
     <img
-      src="/images/Reading.jpg"
+      src="/images/GomoKids.jpg"
       alt="Book World impact"
       loading="lazy"
       className="mx-auto w-full sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain shadow-lg rounded-lg"
