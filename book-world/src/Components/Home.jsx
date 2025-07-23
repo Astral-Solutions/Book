@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ChevronRight, Calendar, Users, Target } from "lucide-react";
+import { Calendar, Users, Target } from "lucide-react";
+import Carousel from "./Carousel"; // Import the Carousel component
 
 const FeatureCard = ({ icon: Icon, title, description }) => (
   <motion.div
@@ -17,9 +18,33 @@ const FeatureCard = ({ icon: Icon, title, description }) => (
 );
 
 function Home() {
+  // Define carousel slides
+  const heroSlides = [
+    {
+      image: "/images/BookWorldTeam.JPG",
+      title: "Book World Team",
+      description: "Our dedicated team working together to transform lives through literacy."
+    },
+    {
+      image: "/images/GomoKids.jpg",
+      title: "Children in Our Programs",
+      description: "Young learners engaging with books and developing their literacy skills."
+    },
+    {
+      image: "/images/BookDonation.jpg",
+      title: "Book Donation Drives",
+      description: "Ensuring every child has access to quality books and learning materials."
+    },
+    {
+      image: "/images/GetInvolved.JPG",
+      title: "Get Involved",
+      description: "Join our mission to create a brighter future through literacy and reading."
+    }
+  ];
+
   return (
     <div className="home-page min-h-screen bg-gray-50">
-      {/* Hero Section */}
+      {/* Hero Section with Carousel */}
       <motion.div
         className="relative h-[600px] overflow-hidden"
         initial={{ opacity: 0 }}
@@ -27,12 +52,12 @@ function Home() {
         transition={{ duration: 1 }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 z-10"></div>
-        <img
-          src="/images/LiteracyFascilitators.jpg"
-          alt="Book World Team"
-          loading="lazy"
-          className="w-full h-full object-contain"
-        />
+        
+        {/* Replace static image with Carousel */}
+        <div className="absolute inset-0">
+          <Carousel slides={heroSlides} interval={6000} />
+        </div>
+        
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl relative z-20">
             <motion.h1
@@ -108,15 +133,46 @@ function Home() {
         </div>
       </section>
 
-      {/* programmes Highlight Section */}
+      {/* Programmes Highlight Section with Carousel */}
       <section className="container mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold text-center text-[#2b347c] mb-6">
-          Programmes Highlight
+          Our Programmes in Action
         </h2>
+        
+        {/* Programme Carousel */}
+        <div className="mb-12">
+          <Carousel 
+            slides={[
+              {
+                image: "/images/LibraryFunctionality.jpg",
+                title: "Library Functionality",
+                description: "Our mobile libraries bringing books directly to communities in need."
+              },
+              {
+                image: "/images/BookDev.JPG",
+                title: "Book Development",
+                description: "Creating and developing educational materials tailored for our communities."
+              },
+              {
+                image: "/images/LibFun.JPG",
+                title: "Library Fun Activities",
+                description: "Engaging children through interactive reading sessions and literary activities."
+              },
+              {
+                image: "/images/Kelebogile.JPG",
+                title: "Individual Success Stories",
+                description: "Celebrating the achievements of children in our literacy programs."
+              }
+            ]} 
+            interval={7000} 
+          />
+        </div>
+
+        {/* Programme Cards */}
         <div className="grid md:grid-cols-3 gap-8">
           <FeatureCard
             icon={Users}
-            title="Early Literacy programme"
+            title="Early Literacy Programme"
             description="Combining phonics and comprehension for ages 0–16."
           />
           <FeatureCard
@@ -140,9 +196,9 @@ function Home() {
         <p className="text-gray-600 max-w-3xl mx-auto mb-8">
           Every book counts, every child matters. Together, we can create a brighter future through literacy and a love for reading.
         </p>
-        {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            to="/support"
+            to="/donate"
             className="px-8 py-3 bg-[#2b347c] text-white rounded-full hover:bg-[#1a2d6b] transition"
           >
             Support Our Mission
@@ -153,7 +209,7 @@ function Home() {
           >
             Learn More About Us
           </Link>
-        </div> */}
+        </div>
       </section>
     </div>
   );
