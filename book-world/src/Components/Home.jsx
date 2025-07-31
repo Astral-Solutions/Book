@@ -18,8 +18,8 @@ const FeatureCard = ({ icon: Icon, title, description }) => (
 );
 
 function Home() {
-  // Define carousel slides
-  const heroSlides = [
+  // Define carousel slides for programmes section
+  const programmeSlides = [
     {
       image: "/images/BookWorldTeam.JPG",
       title: "Book World Team",
@@ -39,29 +39,44 @@ function Home() {
       image: "/images/GetInvolved.JPG",
       title: "Get Involved",
       description: "Join our mission to create a brighter future through literacy and reading."
+    },
+    {
+      image: "/images/LibraryFunctionality.jpg",
+      title: "Library Functionality",
+      description: "Our mobile libraries bringing books directly to communities in need."
+    },
+    {
+      image: "/images/BookDev.JPG",
+      title: "Book Development",
+      description: "Creating and developing educational materials tailored for our communities."
+    },
+    {
+      image: "/images/LibFun.JPG",
+      title: "Library Fun Activities",
+      description: "Engaging children through interactive reading sessions and literary activities."
+    },
+    {
+      image: "/images/Kelebogile.JPG",
+      title: "Individual Success Stories",
+      description: "Celebrating the achievements of children in our literacy programs."
     }
   ];
 
   return (
     <div className="home-page min-h-screen bg-gray-50">
-      {/* Hero Section with Carousel */}
+      {/* Hero Section - Static */}
       <motion.div
-        className="relative h-[600px] overflow-hidden"
+        className="relative h-[600px] overflow-hidden bg-gradient-to-br from-[#2b347c] to-[#1a2d6b]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 z-10"></div>
-        
-        {/* Replace static image with Carousel */}
-        <div className="absolute inset-0">
-          <Carousel slides={heroSlides} interval={6000} />
-        </div>
+        <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl relative z-20">
             <motion.h1
-              className="text-5xl font-bold text-white mb-6 shadow-lg"
+              className="text-5xl font-bold text-white mb-6"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -69,12 +84,12 @@ function Home() {
               Changing Lives One Book at a Time
             </motion.h1>
             <motion.p
-              className="text-xl text-white/90 mb-8 shadow-lg"
+              className="text-xl text-white/90 mb-8"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
-              Join us in creating a brighter future for our children.
+              Join us in creating a brighter future for our children through literacy and reading.
             </motion.p>
             <motion.div
               className="flex gap-4 justify-center"
@@ -84,13 +99,13 @@ function Home() {
             >
               <Link
                 to="/donate"
-                className="inline-flex items-center gap-2 px-8 py-3 bg-[#2b347c] text-white rounded-full hover:bg-[#1a2d6b] transition-colors duration-300"
+                className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#2b347c] rounded-full hover:bg-gray-100 transition-colors duration-300 font-semibold"
               >
                 Donate Today
               </Link>
               <Link
                 to="/volunteer"
-                className="inline-flex items-center gap-2 px-8 py-3 bg-[#2b347c] text-white rounded-full hover:bg-[#1a2d6b] transition-colors duration-300"
+                className="inline-flex items-center gap-2 px-8 py-3 bg-transparent border-2 border-white text-white rounded-full hover:bg-white hover:text-[#2b347c] transition-colors duration-300 font-semibold"
               >
                 Volunteer Now
               </Link>
@@ -99,8 +114,22 @@ function Home() {
         </div>
       </motion.div>
 
-      {/* Introduction Section */}
+      {/* Carousel Section - Our Work in Action */}
       <section className="container mx-auto px-6 py-16">
+        <h2 className="text-4xl font-bold text-center text-[#2b347c] mb-6">
+          Our Work in Action
+        </h2>
+        <p className="text-lg text-gray-700 text-center max-w-3xl mx-auto mb-12">
+          See how we're making a difference in communities across South Africa through our various programs and initiatives.
+        </p>
+        
+        <div className="max-w-5xl mx-auto">
+          <Carousel slides={programmeSlides} interval={6000} />
+        </div>
+      </section>
+
+      {/* Introduction Section */}
+      <section className="container mx-auto px-6 py-16 bg-white rounded-lg shadow-lg">
         <h2 className="text-4xl font-bold text-center text-[#2b347c] mb-6">
           Welcome to Book World
         </h2>
@@ -110,7 +139,7 @@ function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="container mx-auto px-6 py-16 bg-[#F7FAFC] rounded-lg shadow-lg">
+      <section className="container mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold text-center text-[#2b347c] mb-6">
           Why Choose Us
         </h2>
@@ -133,42 +162,12 @@ function Home() {
         </div>
       </section>
 
-      {/* Programmes Highlight Section with Carousel */}
-      <section className="container mx-auto px-6 py-16">
+      {/* Programmes Highlight Section */}
+      <section className="container mx-auto px-6 py-16 bg-[#F7FAFC] rounded-lg shadow-lg">
         <h2 className="text-3xl font-bold text-center text-[#2b347c] mb-6">
-          Our Programmes in Action
+          Our Core Programmes
         </h2>
         
-        {/* Programme Carousel */}
-        <div className="mb-12">
-          <Carousel 
-            slides={[
-              {
-                image: "/images/LibraryFunctionality.jpg",
-                title: "Library Functionality",
-                description: "Our mobile libraries bringing books directly to communities in need."
-              },
-              {
-                image: "/images/BookDev.JPG",
-                title: "Book Development",
-                description: "Creating and developing educational materials tailored for our communities."
-              },
-              {
-                image: "/images/LibFun.JPG",
-                title: "Library Fun Activities",
-                description: "Engaging children through interactive reading sessions and literary activities."
-              },
-              {
-                image: "/images/Kelebogile.JPG",
-                title: "Individual Success Stories",
-                description: "Celebrating the achievements of children in our literacy programs."
-              }
-            ]} 
-            interval={7000} 
-          />
-        </div>
-
-        {/* Programme Cards */}
         <div className="grid md:grid-cols-3 gap-8">
           <FeatureCard
             icon={Users}
