@@ -16,21 +16,8 @@ import WaysToGive from "./Components/WaysToGive";
 import WhoWeAre from "./Components/WhoWeAre";
 import CalendarComponent from "./Components/Calendar";
 import LiteracyDevelopment from "./Components/LiteracyDevelopment";
-
-// Existing components that are already created
 import OurTeam from "./Components/OurTeam";
 import Projects from "./Components/Projects";
-
-// Components that need to be created (commented out until files exist)
-// import OurPartners from "./Components/OurPartners";
-// import OurWork from "./Components/OurWork";
-// import MarothodiProject from "./Components/MarothodiProject";
-// import LiteracyFacilitatorProject from "./Components/LiteracyFacilitatorProject";
-// import Training from "./Components/Training";
-// import Research from "./Components/Research";
-// import Membership from "./Components/Membership";
-// import SubscriptionGiving from "./Components/SubscriptionGiving";
-// import WorkplaceGiving from "./Components/WorkplaceGiving";
 
 // Temporary placeholder component for missing pages
 const ComingSoon = ({ pageName }) => (
@@ -48,23 +35,23 @@ function App() {
         <Routes>
           {/* Main Pages */}
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/calendar" element={<Calendar />} />
-          <Route path="/mission-statement" element={<MissionStatement />} />
-          <Route path="/impact" element={<ImpactPage />} />
-          <Route path="/function-groups" element={<FunctionGroupsPage />} />
+          <Route path="/about" element={<WhoWeAre />} />
+          <Route path="/calendar" element={<CalendarComponent />} />
+          <Route path="/mission-statement" element={<ComingSoon pageName="Mission Statement" />} />
+          <Route path="/impact" element={<ComingSoon pageName="Impact" />} />
+          <Route path="/function-groups" element={<FunctionGroup />} />
           <Route path="/get-involved" element={<GetInvolvedPage />} />
-          <Route path="/literacy-promotion" element={<LiteracyPromotion />} />
+          <Route path="/literacy-promotion" element={<ComingSoon pageName="Literacy Promotion" />} />
           <Route path="/literacy-development" element={<LiteracyDevelopment />} />
-          <Route path="/literacy-hub-functionality" element={<LiteracyHubFunctionality />} />
-          <Route path="/literacy-material-donation" element={<LiteracyMaterialDonation />} />
-          <Route path="/literacy-material-development" element={<LiteracyMaterialDevelopment />} />
+          <Route path="/literacy-hub-functionality" element={<ComingSoon pageName="Literacy Hub Functionality" />} />
+          <Route path="/literacy-material-donation" element={<ComingSoon pageName="Literacy Material Donation" />} />
+          <Route path="/literacy-material-development" element={<ComingSoon pageName="Literacy Material Development" />} />
 
           {/* Research Section */}
-          <Route path="/research" element={<ComingSoon pageName="Research" />} />
+          <Route path="/research" element={<Research />} />
 
           {/* Training Section */}
-          <Route path="/training" element={<ComingSoon pageName="Training" />} />
+          <Route path="/training" element={<Training />} />
 
           {/* Projects Section */}
           <Route path="/projects" element={<Projects />} />
@@ -72,18 +59,18 @@ function App() {
           <Route path="/projects/literacy-facilitator" element={<ComingSoon pageName="Literacy Facilitator Project" />} />
 
           {/* Get Involved */}
-          <Route path="/get-involved" element={<GetInvolvedPage />} />
-          <Route path="/volunteer" element={<VolunteerPage />} />
+          <Route path="/volunteer" element={<ComingSoon pageName="Volunteer" />} />
 
           {/* Ways to Give */}
-          <Route path="/donate" element={<DonationsPage />} />
+          <Route path="/donate" element={<ComingSoon pageName="Donate" />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/membership" element={<ComingSoon pageName="Membership" />} />
           <Route path="/subscription-giving" element={<ComingSoon pageName="Subscription Giving" />} />
           <Route path="/workplace-giving" element={<ComingSoon pageName="Workplace Giving" />} />
 
           {/* Legacy Routes (redirect or maintain existing functionality) */}
-          <Route path="/ways-to-give" element={<DonationsPage />} />
-          <Route path="/library-functionality" element={<LiteracyHubFunctionality />} />
+          <Route path="/ways-to-give" element={<ComingSoon pageName="Ways to Give" />} />
+          <Route path="/library-functionality" element={<ComingSoon pageName="Literacy Hub Functionality" />} />
         </Routes>
       </Layout>
     </Router>

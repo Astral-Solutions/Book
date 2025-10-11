@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Heart, Users, Briefcase, Handshake, Gift, DollarSign, Star, Building } from "lucide-react";
+import { Heart, Users, Briefcase, Handshake, Gift, DollarSign, Star } from "lucide-react";
 
 function WaysToGive() {
-const WaysToGivePage = () => {
   return (
     <div className="ways-to-give-page bg-white min-h-screen py-12 px-6">
       <div className="container mx-auto">
@@ -80,7 +79,6 @@ const WaysToGivePage = () => {
       </div>
     </div>
   );
-};
 }
 
-export default WaysToGivePage;
+export default WaysToGive;
