@@ -2,7 +2,7 @@ import React from "react";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
 
-function ImpactPage() {
+function Impact() {
   const stats = [
     { label: "Books Donated", value: 3000 },
     { label: "Communities Impacted", value: 200 },
@@ -16,7 +16,7 @@ function ImpactPage() {
       <h1 className="text-4xl font-bold text-[#2b347c] mb-4">Our Impact</h1>
 
       <img
-        src="/images/GetInvolved.jpg"
+        src="/images/GetInvolved.JPG"
         alt="Book World Literacy Facilitators"
         loading="lazy"
         className="mx-auto w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-cover shadow-lg border-4 border-white rounded-lg"
@@ -114,4 +114,4 @@ function ImpactPage() {
   );
 }
 
-export default ImpactPage;
+export default Impact;

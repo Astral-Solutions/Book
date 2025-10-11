@@ -1,22 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Core Components
 import ScrollToTop from "./Components/ScrollToTop";
 import Layout from "./Components/Layout";
+
+// Pages
 import Home from "./Components/Home";
-import About from "./Components/About";
-import Calendar from "./Components/Calendar";
-import MissionStatement from "./Components/MissionStatement";
 import Contact from "./Components/Contact";
-import FunctionGroupsPage from "./Components/FunctionGroup";
+import FunctionGroup from "./Components/FunctionGroup";
 import GetInvolvedPage from "./Components/GetInvolved";
-import ImpactPage from "./Components/Impact";
-import LiteracyPromotion from "./Components/LiteracyPromotion";
+import Research from "./Components/Research";
+import Training from "./Components/Training";
+import WaysToGive from "./Components/WaysToGive";
+import WhoWeAre from "./Components/WhoWeAre";
+import CalendarComponent from "./Components/Calendar";
 import LiteracyDevelopment from "./Components/LiteracyDevelopment";
-import LiteracyMaterialDevelopment from "./Components/LiteracyMaterialDevelopment";
-import LiteracyMaterialDonation from "./Components/LiteracyMaterialDonation";
-import LiteracyHubFunctionality from "./Components/LiteracyHubFunctionality";
-import VolunteerPage from "./Components/Volunteer";
-import DonationsPage from "./Components/Donate";
 
 function App() {
   return (
@@ -25,20 +24,15 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/calendar" element={<Calendar />} />
-          <Route path="/mission-statement" element={<MissionStatement />} />
-          <Route path="/impact" element={<ImpactPage />} />
-          <Route path="/function-groups" element={<FunctionGroupsPage />} />
+          <Route path="/who-we-are" element={<WhoWeAre />} />
+          <Route path="/function-groups" element={<FunctionGroup />} />
+          <Route path="/calendar" element={<CalendarComponent />} />
+          <Route path="/research" element={<Research />} />
+          <Route path="/training" element={<Training />} />
           <Route path="/get-involved" element={<GetInvolvedPage />} />
-          <Route path="/literacy-promotion" element={<LiteracyPromotion />} />
-          <Route path="/literacy-development" element={<LiteracyDevelopment />} />
-          <Route path="/literacy-hub-functionality" element={<LiteracyHubFunctionality />} />
-          <Route path="/literacy-material-donation" element={<LiteracyMaterialDonation />} />
-          <Route path="/literacy-material-development" element={<LiteracyMaterialDevelopment />} />
-          <Route path="/volunteer" element={<VolunteerPage />} />
-          <Route path="/donate" element={<DonationsPage />} />
+          <Route path="/ways-to-give" element={<WaysToGive />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/literacy-development" element={<LiteracyDevelopment />} />
         </Routes>
       </Layout>
     </Router>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+function ResponsiveLogo() {
 const ResponsiveLogo = ({ scrolled, className = '' }) => {
   const [dimensions, setDimensions] = useState({
     width: scrolled ? '180px' : '240px',
@@ -29,5 +30,6 @@ const ResponsiveLogo = ({ scrolled, className = '' }) => {
     </div>
   );
 };
+}
 
 export default ResponsiveLogo;

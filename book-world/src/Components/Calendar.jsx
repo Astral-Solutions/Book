@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Calendar as CalendarIcon } from "lucide-react";
 
+function CalendarComponent() {
 const events = [
   { date: "2025-02-05", title: "World Read Aloud Day", details: "Celebrating World Read Aloud Day at Kana Primary school with Book World", image: "/images/WRA05.jpg" },
   { date: "2025-02-10", title: "Back to School Campaign", details: "Back to school activation in Cape Town with Book World", image: "/images/BackToSchool.jpg" },
@@ -151,5 +152,6 @@ const CalendarComponent = () => {
     </div>
   );
 };
+}
 
 export default CalendarComponent;

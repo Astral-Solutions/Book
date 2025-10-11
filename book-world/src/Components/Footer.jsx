@@ -12,13 +12,13 @@ function Footer() {
           <h2 className="text-lg font-bold mb-4">Quick Links</h2>
           <ul className="flex flex-col md:flex-row gap-2 md:gap-6">
             {[
-              { path: "/about", label: "About Us" },
-              { path: "/mission-statement", label: "Mission Statement" },
-              { path: "/calendar", label: "Calendar" },
+              { path: "/who-we-are", label: "Who We Are" },
               { path: "/function-groups", label: "Function Groups" },
+              { path: "/research", label: "Research" },
+              { path: "/training", label: "Training" },
               { path: "/get-involved", label: "Get Involved" },
-              { path: "/impact", label: "Our Impact" },
-              { path: "/contact", label: "Contact" },
+              { path: "/ways-to-give", label: "Ways to Give" },
+              { path: "/contact", label: "Contact Us" },
             ].map((link, index) => (
               <li key={index}>
                 <Link

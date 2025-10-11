@@ -1,34 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+function FunctionGroup() {
 const functionGroups = [
   {
-    name: "Literacy Material Development",
-    description: "Creating culturally relevant, multilingual educational books for children and youth.",
+    name: "Literacy Material Development Group",
+    description:
+      "Creating culturally relevant, multilingual educational books for children and youth.",
     image: "/images/BookDevelopment.jpg",
     link: "/literacy-material-development",
   },
   {
-    name: "Literacy Material Donation",
-    description: "Providing free books and learning resources to children in underserved communities.",
+    name: "Literacy Material Donation Group",
+    description:
+      "Providing free books and learning resources to children in underserved communities.",
     image: "/images/ReadingPromotion.jpg",
     link: "/literacy-material-donation",
   },
   {
-    name: "Literacy Development",
-    description: "Improving reading, writing, and communication skills through structured facilitation.",
+    name: "Literacy Development Group",
+    description:
+      "Improving reading, writing, and communication skills through structured facilitation.",
     image: "/images/LiteracyFascilitators.jpg",
     link: "/literacy-development",
   },
   {
-    name: "Literacy Hub Functionality",
-    description: "Strengthening libraries and reading hubs to become community learning centers.",
+    name: "Literacy Hub Functionality Group",
+    description:
+      "Strengthening libraries and reading hubs to become community learning centers.",
     image: "/images/Nest.jpg",
     link: "/literacy-hub-functionality",
   },
   {
-    name: "Literacy Promotion",
-    description: "Fostering a love of reading through storytelling, reading challenges, and outreach campaigns.",
+    name: "Literacy Promotion Group",
+    description:
+      "Fostering a love of reading through storytelling, reading challenges, and outreach campaigns.",
     image: "/images/WRAD.jpg",
     link: "/literacy-promotion",
   },
@@ -42,7 +48,9 @@ const FunctionGroupsPage = () => {
           Our Function Groups
         </h1>
         <p className="text-lg text-gray-700 mb-12 text-center">
-          Explore the five pillars of our literacy mission , each one designed to empower children and communities through the transformative power of books.
+          Explore the five pillars of our literacy mission, each one designed to
+          empower children and communities through the transformative power of
+          books.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {functionGroups.map((group, index) => (
@@ -74,5 +82,6 @@ const FunctionGroupsPage = () => {
     </div>
   );
 };
+}
 
-export default FunctionGroupsPage;
+export default FunctionGroup;

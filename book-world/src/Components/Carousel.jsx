@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+function Carousel() {
+
 const Carousel = ({ slides, interval = 5000 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -80,5 +82,6 @@ const Carousel = ({ slides, interval = 5000 }) => {
     </div>
   );
 };
+}
 
 export default Carousel;
