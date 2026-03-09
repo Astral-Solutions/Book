@@ -1,17 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { 
-  Info, 
-  Target, 
-  Calendar, 
-  Users, 
-  UserPlus, 
-  BarChart3, 
-  Mail,
-  Menu, 
-  X 
-} from "lucide-react";
+import { Link } from "react-router-dom";
+import { FaInfoCircle, FaUsers, FaBookOpen, FaChalkboardTeacher, FaHandsHelping, FaDonate, FaEnvelope } from "react-icons/fa";
+import { Menu, X } from "lucide-react";
 
+function Navbar() {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -21,7 +13,6 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -32,13 +23,13 @@ const Navbar = () => {
   }, [location]);
 
   const navLinks = [
-    { icon: <Info className="w-4 h-4" />, text: "About Us", path: "/about" },
-    { icon: <Target className="w-4 h-4" />, text: "Mission Statement", path: "/mission-statement" },
-    { icon: <Calendar className="w-4 h-4" />, text: "Calendar", path: "/calendar" },
-    { icon: <Users className="w-4 h-4" />, text: "Function Groups", path: "/function-groups" },
-    { icon: <UserPlus className="w-4 h-4" />, text: "Get Involved", path: "/get-involved" },
-    { icon: <BarChart3 className="w-4 h-4" />, text: "Our Impact", path: "/impact" },
-    { icon: <Mail className="w-4 h-4" />, text: "Contact", path: "/contact" },
+    { icon: <FaInfoCircle className="w-5 h-5" />, text: "About Us", path: "/about" },
+    { icon: <FaBullseye className="w-5 h-5" />, text: "Mission Statement", path: "/mission-statement" },
+    { icon: <FaCalendar className="w-5 h-5" />, text: "Calendar", path: "calendar"},
+    { icon: <FaUsers className="w-5 h-5" />, text: "Function Groups", path: "/function-groups" },
+    { icon: <FaUserTie className="w-5 h-5" />, text: "Get Involved", path: "/get-involved" },
+    { icon: <FaChartBar className="w-5 h-5" />, text: "Our Impact", path: "/impact" }, // New Impact Page Link
+    { icon: <FaEnvelope className="w-5 h-5" />, text: "Contact", path: "/contact" },
   ];
 
   const isActiveLink = (path) => {
@@ -54,19 +45,17 @@ const Navbar = () => {
         }`}
       >
         {/* Logo */}
-        <Link to="/" className="flex items-center group">
+        <Link to="/" className="flex items-center">
           <img
             src="/images/BookWorldLogo.png"
             alt="Book World Logo"
-            className="w-10 h-10 mr-3 transition-transform group-hover:scale-105"
+            className="w-10 h-10 mr-3"
           />
-          <span className="text-xl font-bold group-hover:text-[#1a2d6b] transition-colors">
-            Book World
-          </span>
+          <span className="text-xl font-bold">Book World</span>
         </Link>
 
         {/* Navigation Links */}
-        <div className="flex items-center space-x-1">
+        <div className="flex items-center space-x-6">
           {navLinks.map((link, index) => (
             <Link
               key={index}
@@ -96,27 +85,14 @@ const Navbar = () => {
 
       {/* Mobile Navbar */}
       <div className="lg:hidden">
-        {/* Mobile Header */}
-        <div className="flex items-center justify-between px-4 py-3 bg-white shadow-sm sticky top-0 z-50">
-          <Link to="/" className="flex items-center">
-            <img
-              src="/images/BookWorldLogo.png"
-              alt="Book World Logo"
-              className="w-8 h-8 mr-2"
-            />
-            <span className="text-lg font-bold text-[#2b347c]">Book World</span>
-          </Link>
-          
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-md bg-[#2b347c]/10 text-[#2b347c] hover:bg-[#2b347c]/20 transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="fixed top-4 left-4 z-50 p-2 rounded-md bg-white text-[#2b347c] hover:bg-[#f3f4f6]"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
 
-        {/* Overlay */}
         {isOpen && (
           <div
             className="fixed inset-0 bg-black bg-opacity-50 z-30"
@@ -124,32 +100,27 @@ const Navbar = () => {
           />
         )}
 
-        {/* Mobile Side Menu */}
+        {/* Mobile Side Navbar */}
         <nav
           className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white text-[#2b347c] z-40 transform transition-transform duration-300 ease-in-out shadow-2xl ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          {/* Mobile Menu Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-200">
-            <div className="flex items-center">
-              <img
-                src="/images/BookWorldLogo.png"
-                alt="Book World Logo"
-                className="w-8 h-8 mr-2"
-              />
-              <span className="text-lg font-bold">Book World</span>
-            </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="p-2 rounded-md hover:bg-gray-100 transition-colors"
-              aria-label="Close menu"
-            >
-              <X size={20} />
-            </button>
-          </div>
+          {/* Logo */}
+          <Link
+            to="/"
+            className="block p-4 text-center border-b border-blue-700"
+            onClick={() => setIsOpen(false)}
+          >
+            <img
+              src="/images/BookWorldLogo.png"
+              alt="Book World Logo"
+              className="w-10 h-10 mx-auto mb-2"
+            />
+            <span className="text-xl font-bold">Book World</span>
+          </Link>
 
-          {/* Mobile Navigation Links */}
+          {/* Navigation Links */}
           <div className="py-4">
             {navLinks.map((link, index) => (
               <Link
@@ -183,5 +154,6 @@ const Navbar = () => {
     </>
   );
 };
+}
 
 export default Navbar;

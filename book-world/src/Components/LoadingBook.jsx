@@ -1,5 +1,6 @@
 import React from 'react';
 
+function LoadingBook() {
 const LoadingBook = () => {
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-90 z-50">
@@ -14,5 +15,6 @@ const LoadingBook = () => {
         </div>
     );
 };
+}
 
 export default LoadingBook;
