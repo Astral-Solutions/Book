@@ -1,40 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-// import { 
-//   Calendar, 
-//   Users, 
-//   Target, 
-//   BookOpen, 
-//   Heart, 
-//   Lightbulb,
-//   // Facebook,
-//   MessageCircle,
-//   // Twitter,
-//   // Youtube,
-//   // Instagram,
-//   // Linkedin,
-//   ChevronLeft,
-//   ChevronRight,
-//   // Sparkles,
-//   Award,
-//   TrendingUp,
-//   Mail,
-//   Phone,
-//   MapPin,
-//   Send,
-//   GraduationCap,
-//   School,
-//   Library,
-//   Gift,
-//   Megaphone,
-//   FileText,
-//   UserPlus,
-//   DollarSign,
-//   Building2,
-//   CreditCard,
-//   ArrowRight
-// } from "lucide-react";
 
 // Enhanced Carousel Component
 const EnhancedCarousel = ({ slides, interval = 8000, showDots = true }) => {
@@ -459,15 +425,6 @@ function Home() {
     }
   ];
 
-  // const socialPlatforms = [
-  //   { icon: Facebook, platform: "Facebook" },
-  //   { icon: MessageCircle, platform: "WhatsApp" },
-  //   { icon: Twitter, platform: "Twitter" },
-  //   { icon: Youtube, platform: "YouTube" },
-  //   { icon: Instagram, platform: "Instagram" },
-  //   { icon: Linkedin, platform: "LinkedIn" }
-  // ];
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
@@ -517,7 +474,6 @@ function Home() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 bg-[#2b347c]/10 px-6 py-3 rounded-full mb-6"
           >
-            <Sparkles className="w-5 h-5 text-[#2b347c]" />
             <span className="text-[#2b347c] font-semibold">Who We Are</span>
           </motion.div>
           <h2 className="text-5xl md:text-6xl font-bold text-[#2b347c] mb-8">Our Mission</h2>
