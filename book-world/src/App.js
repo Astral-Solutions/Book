@@ -1,12 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  BookOpen, Heart, Users, Target, Mail, Phone, MapPin, Send, Gift, 
-  DollarSign, CreditCard, Building2, UserPlus, Award, 
-  Lightbulb, TrendingUp, FileText, GraduationCap, School, Library, 
-  Megaphone, ArrowRight, ChevronLeft, ChevronRight, Check, 
-  Facebook, Twitter, Youtube, Instagram, Linkedin, 
-  Sparkles, Menu, X
+import {
+  BookOpen,
+  Heart,
+  Users,
+  Target,
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Gift,
+  DollarSign,
+  CreditCard,
+  Building2,
+  UserPlus,
+  Award,
+  Lightbulb,
+  TrendingUp,
+  FileText,
+  GraduationCap,
+  School,
+  Library,
+  Megaphone,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  Check,
+  Facebook,
+  Twitter,
+  Youtube,
+  Instagram,
+  Linkedin,
+  Sparkles,
+  Menu,
+  X
 } from "lucide-react";
 
 // Enhanced Carousel Component
@@ -25,8 +52,10 @@ const EnhancedCarousel = ({ slides, interval = 8000, showDots = true }) => {
   }, [slides.length, interval, isPaused]);
 
   const goToSlide = (index) => setCurrentSlide(index);
+
   const goToPrevious = () =>
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+
   const goToNext = () =>
     setCurrentSlide((prev) => (prev + 1) % slides.length);
 
@@ -265,7 +294,7 @@ const HomePage = ({ setCurrentPage }) => {
       </div>
 
       {/* Stats Section */}
-      <section className="relative -mt-10">
+      <section className="relative mt-10">
         <div className="max-w-6xl mx-auto px-6">
           <div className="bg-gradient-to-r from-[#2b347c] to-[#1a2d6b] rounded-3xl shadow-2xl p-12">
             <div className="grid md:grid-cols-3 gap-8 text-center text-white">
@@ -346,7 +375,7 @@ const HomePage = ({ setCurrentPage }) => {
             className="relative overflow-hidden rounded-xl shadow-lg group"
           >
             <img 
-              src="/images/AboutUs.jpg" 
+              src="/images/LuShoot.jpeg" 
               alt="Our Values" 
               className="w-full h-80 object-contain group-hover:scale-110 transition-transform duration-500"
             />
@@ -618,7 +647,7 @@ const AboutPage = () => (
     {/* Hero Image */}
     <div className="relative h-96 overflow-hidden">
       <img 
-        src="/images/AboutUs.jpg" 
+        src="/images/LuTeam.jpeg" 
         alt="About Book World"
         className="w-full h-full object-contain"
       />
@@ -677,9 +706,9 @@ const AboutPage = () => (
             { image: "/images/Mageza.jpeg", name: "Ms. Mageza" },
             { image: "/images/Nkosi.jpeg", name: "Mr. Milanzi" },
             { image: "/images/Petro.jpeg", name: "Ms. Mosimane" },
-            { image: "/images/Gomo.jpeg", name: "Ms. Mogomutsi" },
+            { image: "/images/Gomo.jpeg", name: "Ms. Mogomotsi" },
             { image: "/images/Rosa.jpeg", name: "Ms. Tamele" },
-            { image: "/images/BWTeam.jpg", name: "Team" }
+            { image: "/images/Team.jpeg", name: "Team" }
           ].map((member, i) => (
             <motion.div
               key={i}
@@ -733,15 +762,15 @@ const FunctionGroupsPage = () => {
     },
     {
       icon: Library,
-      title: "Library Functionality",
-      description: "Establishing sustainable library systems in homes and communities for lasting impact.",
-      features: ["Library setup", "Management training", "Resource organization", "Community engagement"]
+      title: "Literacy Hub Functionality",
+      description: "Establishing sustainable Literacy Hubs in homes and communities for lasting impact.",
+      features: ["Literacy Hub","Literacy Hub setup", "Management training", "Resource organization", "Community engagement"]
     },
     {
       icon: Megaphone,
       title: "Literacy Promotion",
       description: "Inspiring a culture of reading through creative campaigns and community engagement.",
-      features: ["Reading campaigns", "Community events", "Social media outreach", "Success stories"]
+      features: ["Literacy Lifestyle","Literacy campaigns", "Community events", "Social media outreach", "Success stories"]
     }
   ];
 
