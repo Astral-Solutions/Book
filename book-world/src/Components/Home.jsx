@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,12 +8,12 @@ import {
   BookOpen, 
   Heart, 
   Lightbulb,
-  Facebook,
+  // Facebook,
   MessageCircle,
-  Twitter,
-  Youtube,
-  Instagram,
-  Linkedin,
+  // Twitter,
+  // Youtube,
+  // Instagram,
+  // Linkedin,
   ChevronLeft,
   ChevronRight,
   Sparkles,
