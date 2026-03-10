@@ -296,7 +296,7 @@ function Home() {
   // Hero Slides with actual images
   const heroSlides = [
     {
-      image: "/images/BookWorldTeam.JPG",
+      image: "/images/WeAre.jpeg",
       title: "WE ARE BOOK WORLD",
       description: "A passionate community of Bookmen dedicated to transforming literacy across South Africa."
     },
@@ -319,35 +319,35 @@ function Home() {
       description: "Creating innovative educational materials tailored for diverse community needs.",
       link: "/literacy-material-development",
       icon: FileText,
-      image: "/images/BookDevelopment.jpg"
+      image: "/images/MaterialDev.jpeg"
     },
     {
       title: "Literacy Material Donation",
       description: "Ensuring quality books and resources reach every child in underserved areas.",
       link: "/literacy-material-donation",
       icon: Gift,
-      image: "/images/BookDonation.jpg"
+      image: "/images/MaterialDon.jpeg"
     },
     {
       title: "Literacy Development",
       description: "Empowering communities through trained facilitators who bring literacy programs to life.",
       link: "/literacy-development",
       icon: GraduationCap,
-      image: "/images/LiteracyDevelopment.jpg"
+      image: "/images/LitDev.jpeg"
     },
     {
       title: "Library Functionality",
       description: "Establishing sustainable library systems in homes and communities for lasting impact.",
       link: "/literacy-hub-functionality",
       icon: Library,
-      image: "/images/LibraryFunctionality.jpg"
+      image: "/images/LitHub.jpeg"
     },
     {
       title: "Literacy Promotion",
       description: "Inspiring a culture of reading through creative campaigns and community engagement.",
       link: "/literacy-promotion",
       icon: Megaphone,
-      image: "/images/ReadingPromotion.jpg"
+      image: "/images/LitPromo.jpeg"
     }
   ];
 
@@ -487,8 +487,8 @@ function Home() {
           >
             <div className="grid md:grid-cols-3 gap-8">
               <StatCounter end={50} label="Communities Served" icon={Users} />
-              <StatCounter end={10000} label="Books Distributed" icon={BookOpen} />
-              <StatCounter end={500} label="Children Impacted" icon={Heart} />
+              <StatCounter end={14000} label="Books Distributed" icon={BookOpen} />
+              <StatCounter end={7500} label="Children Impacted" icon={Heart} />
             </div>
           </motion.div>
         </div>

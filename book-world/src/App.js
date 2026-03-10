@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   BookOpen, Heart, Users, Target, Mail, Phone, MapPin, Send, Gift, 
-  DollarSign, CreditCard, Building2, UserPlus, Calendar, Award, 
+  DollarSign, CreditCard, Building2, UserPlus, Award, 
   Lightbulb, TrendingUp, FileText, GraduationCap, School, Library, 
-  Megaphone, ArrowRight, ChevronDown, ChevronLeft, ChevronRight, Check, 
-  Facebook, MessageCircle, Twitter, Youtube, Instagram, Linkedin, 
+  Megaphone, ArrowRight, ChevronLeft, ChevronRight, Check, 
+  Facebook, Twitter, Youtube, Instagram, Linkedin, 
   Sparkles, Menu, X
 } from "lucide-react";
 
