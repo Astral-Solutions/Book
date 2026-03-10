@@ -16,91 +16,99 @@ const EnhancedCarousel = ({ slides, interval = 8000, showDots = true }) => {
 
   useEffect(() => {
     if (isPaused) return;
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, interval);
+
     return () => clearInterval(timer);
   }, [slides.length, interval, isPaused]);
 
   const goToSlide = (index) => setCurrentSlide(index);
-  const goToPrevious = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  const goToNext = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const goToPrevious = () =>
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const goToNext = () =>
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
 
   return (
-    <div 
-      className="relative h-full w-full overflow-hidden rounded-2xl shadow-2xl"
+    <div
+      className="relative w-full overflow-hidden rounded-2xl shadow-2xl"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ duration: 0.7 }}
-          className="absolute inset-0"
+          className="w-full"
         >
-          <div className="relative h-full w-full">
+          {/* IMAGE */}
+          <div className="w-full h-[450px] overflow-hidden">
             {slides[currentSlide].image ? (
-              <>
-                <img 
-                  src={slides[currentSlide].image} 
-                  alt={slides[currentSlide].title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
-              </>
+              <img
+                src={slides[currentSlide].image}
+                alt={slides[currentSlide].title}
+                className="w-full h-full object-contain"
+              />
             ) : (
               <div className="bg-gradient-to-br from-[#2b347c] via-[#1a2d6b] to-[#0f1a4d] h-full w-full" />
             )}
-            <div className="absolute inset-0 flex items-center justify-center px-8 md:px-16">
-              <div className="text-center max-w-4xl">
-                <motion.h1
-                  initial={{ y: 30, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.6 }}
-                  className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
-                >
-                  {slides[currentSlide].title}
-                </motion.h1>
-                {slides[currentSlide].description && (
-                  <motion.p
-                    initial={{ y: 30, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.4, duration: 0.6 }}
-                    className="text-lg md:text-xl text-white/95 mb-8 leading-relaxed drop-shadow-md"
-                  >
-                    {slides[currentSlide].description}
-                  </motion.p>
-                )}
-              </div>
-            </div>
+          </div>
+
+          {/* TEXT BELOW IMAGE */}
+          <div className="bg-white p-10 text-center">
+            <motion.h1
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-4xl md:text-5xl font-bold text-[#2b347c] mb-4"
+            >
+              {slides[currentSlide].title}
+            </motion.h1>
+
+            {slides[currentSlide].description && (
+              <motion.p
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="text-lg text-gray-700 max-w-3xl mx-auto"
+              >
+                {slides[currentSlide].description}
+              </motion.p>
+            )}
           </div>
         </motion.div>
       </AnimatePresence>
 
+      {/* Navigation Buttons */}
       <button
         onClick={goToPrevious}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-all duration-300 group z-10"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 backdrop-blur-sm p-3 rounded-full transition-all duration-300 group z-10"
       >
-        <ChevronLeft className="w-6 h-6 text-white" />
-      </button>
-      <button
-        onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-all duration-300 group z-10"
-      >
-        <ChevronRight className="w-6 h-6 text-white" />
+        <ChevronLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
       </button>
 
+      <button
+        onClick={goToNext}
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 backdrop-blur-sm p-3 rounded-full transition-all duration-300 group z-10"
+      >
+        <ChevronRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+      </button>
+
+      {/* Dots */}
       {showDots && (
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-10">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                index === currentSlide ? 'w-8 bg-white' : 'w-2 bg-white/50 hover:bg-white/75'
+                index === currentSlide
+                  ? "w-8 bg-white"
+                  : "w-2 bg-white/50 hover:bg-white/75"
               }`}
             />
           ))}
@@ -126,11 +134,19 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
   ];
 
   return (
-    <nav className="bg-gradient-to-r from-[#2b347c] to-[#1a2d6b] text-white shadow-lg sticky top-0 z-50">
+        <nav className="bg-gradient-to-r from-[#2b347c] to-[#1a2d6b] text-white shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => setCurrentPage("Home")}>
-            <BookOpen className="w-10 h-10" />
+          {/* Logo + Site Name */}
+          <div
+            className="flex items-center gap-3 cursor-pointer"
+            onClick={() => setCurrentPage("Home")}
+          >
+            <img
+              src="/BookWorldLogo.png"
+              alt="Book World Logo"
+              className="w-10 h-10 object-contain"
+            />
             <span className="text-2xl font-bold">Book World</span>
           </div>
 
@@ -141,9 +157,9 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
                 key={item.page}
                 onClick={() => setCurrentPage(item.page)}
                 className={`px-4 py-2 rounded-lg transition-all ${
-                  currentPage === item.page 
-                    ? 'bg-white text-[#2b347c] font-bold' 
-                    : 'hover:bg-white/20'
+                  currentPage === item.page
+                    ? "bg-white text-[#2b347c] font-bold"
+                    : "hover:bg-white/20"
                 }`}
               >
                 {item.name}
@@ -190,7 +206,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 const HomePage = ({ setCurrentPage }) => {
   const heroSlides = [
     { 
-      image: "/images/BookWorldTeam.JPG",
+      image: "/images/WeAre.jpeg",
       title: "WE ARE BOOK WORLD", 
       description: "A passionate community of Bookmen dedicated to transforming literacy across South Africa." 
     },
@@ -209,33 +225,33 @@ const HomePage = ({ setCurrentPage }) => {
   const functionGroups = [
     { 
       icon: FileText, 
-      title: "Material Development", 
+      title: "Literacy Material Development", 
       description: "Creating innovative educational materials",
-      image: "/images/BookDevelopment.jpg"
+      image: "/images/MaterialDev.jpeg"
     },
     { 
       icon: Gift, 
-      title: "Material Donation", 
+      title: "Literacy Material Donation", 
       description: "Ensuring books reach every child",
-      image: "/images/BookDonation.jpg"
+      image: "/images/MaterialDon.jpeg"
     },
     { 
       icon: GraduationCap, 
       title: "Literacy Development", 
       description: "Empowering through trained facilitators",
-      image: "/images/LiteracyDevelopment.jpg"
+      image: "/images/LitDev.jpeg"
     },
     { 
       icon: Library, 
-      title: "Library Functionality", 
-      description: "Sustainable library systems",
-      image: "/images/LibraryFunctionality.jpg"
+      title: "Literacy Hub Functionality", 
+      description: "Sustainable literacy hub systems",
+      image: "/images/LitHub.jpeg"
     },
     { 
       icon: Megaphone, 
       title: "Literacy Promotion", 
       description: "Inspiring a culture of reading",
-      image: "/images/ReadingPromotion.jpg"
+      image: "/images/LitPromo.jpeg"
     }
   ];
 
@@ -249,7 +265,7 @@ const HomePage = ({ setCurrentPage }) => {
       </div>
 
       {/* Stats Section */}
-      <section className="relative -mt-20 z-10">
+      <section className="relative -mt-10">
         <div className="max-w-6xl mx-auto px-6">
           <div className="bg-gradient-to-r from-[#2b347c] to-[#1a2d6b] rounded-3xl shadow-2xl p-12">
             <div className="grid md:grid-cols-3 gap-8 text-center text-white">
@@ -258,11 +274,11 @@ const HomePage = ({ setCurrentPage }) => {
                 <div className="text-lg opacity-90">Communities Served</div>
               </div>
               <div>
-                <div className="text-5xl font-bold mb-2">10,000+</div>
+                <div className="text-5xl font-bold mb-2">14,000+</div>
                 <div className="text-lg opacity-90">Books Distributed</div>
               </div>
               <div>
-                <div className="text-5xl font-bold mb-2">500+</div>
+                <div className="text-5xl font-bold mb-2">7,500+</div>
                 <div className="text-lg opacity-90">Children Impacted</div>
               </div>
             </div>
@@ -271,11 +287,12 @@ const HomePage = ({ setCurrentPage }) => {
       </section>
 
       {/* Mission Statement with Image */}
+       {/*
       <section className="container mx-auto px-6 py-24">
         <div className="text-center max-w-4xl mx-auto">
           <div className="mb-12">
             <img 
-              src="/images/MissionStatement.jpg" 
+              src="/images/Mission.jpeg" 
               alt="Mission Statement" 
               className="w-full rounded-2xl shadow-2xl"
             />
@@ -301,6 +318,7 @@ const HomePage = ({ setCurrentPage }) => {
           </button>
         </div>
       </section>
+      */}
 
       {/* About Section with Images */}
       <section className="container mx-auto px-6 py-16 bg-gray-50">
@@ -312,9 +330,9 @@ const HomePage = ({ setCurrentPage }) => {
             className="relative overflow-hidden rounded-xl shadow-lg group"
           >
             <img 
-              src="/images/About.jpg" 
+              src="/images/OurStory.jpeg" 
               alt="About Us" 
-              className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+              className="w-full h-80 object-contain group-hover:scale-110 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
               <h3 className="text-white text-2xl font-bold">Our Story</h3>
@@ -330,7 +348,7 @@ const HomePage = ({ setCurrentPage }) => {
             <img 
               src="/images/AboutUs.jpg" 
               alt="Our Values" 
-              className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+              className="w-full h-80 object-contain group-hover:scale-110 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
               <h3 className="text-white text-2xl font-bold">Our Values</h3>
@@ -344,9 +362,9 @@ const HomePage = ({ setCurrentPage }) => {
             className="relative overflow-hidden rounded-xl shadow-lg group"
           >
             <img 
-              src="/images/Litfac.JPG" 
+              src="/images/OurTeam.jpeg" 
               alt="Our Team" 
-              className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+              className="w-full h-80 object-contain group-hover:scale-110 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
               <h3 className="text-white text-2xl font-bold">Our Team</h3>
@@ -376,7 +394,7 @@ const HomePage = ({ setCurrentPage }) => {
                   <img 
                     src={group.image} 
                     alt={group.title}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-contain hover:scale-110 transition-transform duration-500"
                   />
                 </div>
               )}
@@ -416,6 +434,7 @@ const HomePage = ({ setCurrentPage }) => {
       </section>
 
       {/* Impact Gallery */}
+      {/*
       <section className="container mx-auto px-6 py-24 bg-gray-50">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-[#2b347c] mb-6">Our Impact</h2>
@@ -449,7 +468,7 @@ const HomePage = ({ setCurrentPage }) => {
                 <img 
                   src={item.image} 
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
@@ -461,6 +480,7 @@ const HomePage = ({ setCurrentPage }) => {
           ))}
         </div>
       </section>
+      */}
 
       {/* Activities & Events Carousel */}
       <section className="container mx-auto px-6 py-24">
@@ -478,7 +498,7 @@ const HomePage = ({ setCurrentPage }) => {
               { image: "/images/WorldReadAloudCPT.jpg", title: "World Read Aloud Day", description: "Celebrating reading together" },
               { image: "/images/WRA05.jpg", title: "Reading Celebrations", description: "Community reading events" },
               { image: "/images/WRAD.jpg", title: "World Read Aloud", description: "Global literacy celebration" },
-              { image: "/images/bookOpening.gif", title: "Library Openings", description: "New literacy hubs launched" },
+              { image: "/images/bookOpening.gif", title: "Literacy Hub Openings", description: "New literacy hubs launched" },
               { image: "/images/LunFriends.jpg", title: "Reading Friends", description: "Building literacy partnerships" }
             ]} 
             interval={5000} 
@@ -487,6 +507,7 @@ const HomePage = ({ setCurrentPage }) => {
       </section>
 
       {/* Team Section */}
+      {/*
       <section className="container mx-auto px-6 py-24 bg-gray-50">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-[#2b347c] mb-6">Meet Our Team</h2>
@@ -517,7 +538,7 @@ const HomePage = ({ setCurrentPage }) => {
                 <img 
                   src={member.image} 
                   alt={member.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
@@ -529,6 +550,8 @@ const HomePage = ({ setCurrentPage }) => {
           ))}
         </div>
       </section>
+      */}
+      
       <section className="container mx-auto px-6 py-24">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-[#2b347c] mb-6">Why Book World</h2>
@@ -597,7 +620,7 @@ const AboutPage = () => (
       <img 
         src="/images/AboutUs.jpg" 
         alt="About Book World"
-        className="w-full h-full object-cover"
+        className="w-full h-full object-contain"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-end">
         <div className="container mx-auto px-6 pb-12">
@@ -648,11 +671,14 @@ const AboutPage = () => (
         <h2 className="text-3xl font-bold text-[#2b347c] mb-6">Our Team</h2>
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           {[
-            { image: "/images/MrMoteane.JPG", name: "Mr. Moteane" },
-            { image: "/images/MrRangaka.JPG", name: "Mr. Rangaka" },
-            { image: "/images/MsMakoloko.JPG", name: "Ms. Makoloko" },
-            { image: "/images/Petronella.JPG", name: "Petronella" },
-            { image: "/images/Rosa.JPG", name: "Rosa" },
+            { image: "/images/Kagiso.jpeg", name: "Mr. Rangaka" },
+            { image: "/images/KatMak.jpeg", name: "Ms. Makoloko" },
+            { image: "/images/Katlego.jpeg", name: "Mr. Moteane" },
+            { image: "/images/Mageza.jpeg", name: "Ms. Mageza" },
+            { image: "/images/Nkosi.jpeg", name: "Mr. Milanzi" },
+            { image: "/images/Petro.jpeg", name: "Ms. Mosimane" },
+            { image: "/images/Gomo.jpeg", name: "Ms. Mogomutsi" },
+            { image: "/images/Rosa.jpeg", name: "Ms. Tamele" },
             { image: "/images/BWTeam.jpg", name: "Team" }
           ].map((member, i) => (
             <motion.div
@@ -665,7 +691,7 @@ const AboutPage = () => (
               <img 
                 src={member.image} 
                 alt={member.name}
-                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-64 object-contain group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
                 <p className="text-white font-bold text-lg">{member.name}</p>
@@ -843,11 +869,11 @@ const TrainingPage = () => {
     },
     {
       icon: Library,
-      title: "Library Management",
+      title: "Literacy Hub Management",
       duration: "4 weeks",
-      description: "Training on organizing, maintaining, and maximizing community library resources.",
+      description: "Training on organizing, maintaining, and maximizing community Literacy Hub resources.",
       modules: ["Cataloging systems", "Resource organization", "User engagement", "Sustainability planning"],
-      image: "/images/LibFun.JPG"
+      image: "/images/LitHubJoy.jpeg"
     },
     {
       icon: BookOpen,
@@ -884,7 +910,7 @@ const TrainingPage = () => {
                   <img 
                     src={program.image} 
                     alt={program.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               )}
@@ -1017,11 +1043,10 @@ const GetInvolvedPage = ({ setCurrentPage }) => {
   );
 };
 
-// Donate Page
+ // donations page
 const DonatePage = () => {
-  const [selectedAmount, setSelectedAmount] = useState(null);
-  const [customAmount, setCustomAmount] = useState("");
-
+  const [selectedAmount, setSelectedAmount] = React.useState(null);
+  const [customAmount, setCustomAmount] = React.useState("");
   const amounts = [100, 250, 500, 1000];
 
   return (
@@ -1032,16 +1057,45 @@ const DonatePage = () => {
           animate={{ opacity: 1, y: 0 }}
           className="max-w-4xl mx-auto"
         >
+          {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-5xl font-bold text-[#2b347c] mb-6">Make a Difference Today</h1>
             <p className="text-xl text-gray-700">
-              Your donation helps bring literacy to children across South Africa
+              Your donation helps bring literacy to children across South Africa. 
+              Our online donation platform is coming soon! In the meantime, you can manually deposit into the bank account details below.
             </p>
           </div>
 
+          {/* Donation Amount Section */}
+
+          {/* Banking Details */}
+          <div className="container mx-auto px-6 py-12 bg-white shadow-lg rounded-lg mb-12">
+            <h2 className="text-3xl font-bold text-center text-[#2b347c] mb-6">Bank Account Details</h2>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse border border-gray-300 text-left bg-gray-50">
+                <thead>
+                  <tr className="bg-[#2b347c] text-white">
+                    <th className="border border-gray-300 px-4 py-2">Legal Entity Name</th>
+                    <th className="border border-gray-300 px-4 py-2">Bank Name</th>
+                    <th className="border border-gray-300 px-4 py-2">Account Number</th>
+                    <th className="border border-gray-300 px-4 py-2">Branch Code</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2">Book World SA</td>
+                    <td className="border border-gray-300 px-4 py-2">Standard Bank</td>
+                    <td className="border border-gray-300 px-4 py-2">10183691987</td>
+                    <td className="border border-gray-300 px-4 py-2">017045</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+{/* 
+          // Donation Amount Selection  */}
           <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
             <h2 className="text-2xl font-bold text-[#2b347c] mb-6">Choose Your Donation Amount</h2>
-            
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
               {amounts.map((amount) => (
                 <button
@@ -1049,8 +1103,8 @@ const DonatePage = () => {
                   onClick={() => setSelectedAmount(amount)}
                   className={`p-4 rounded-lg border-2 transition-all ${
                     selectedAmount === amount
-                      ? 'border-[#2b347c] bg-[#2b347c] text-white'
-                      : 'border-gray-300 hover:border-[#2b347c]'
+                      ? "border-[#2b347c] bg-[#2b347c] text-white"
+                      : "border-gray-300 hover:border-[#2b347c]"
                   }`}
                 >
                   <div className="text-2xl font-bold">R{amount}</div>
@@ -1074,7 +1128,8 @@ const DonatePage = () => {
             </button>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          {/* Donation Impact Cards */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <BookOpen className="w-12 h-12 text-[#2b347c] mx-auto mb-4" />
               <h3 className="font-bold text-[#2b347c] mb-2">R100</h3>
@@ -1092,7 +1147,8 @@ const DonatePage = () => {
             </div>
           </div>
 
-          <div className="mt-12 bg-gradient-to-r from-[#2b347c] to-[#1a2d6b] text-white p-8 rounded-xl">
+          {/* Other Ways to Give */}
+          <div className="mt-12 bg-gradient-to-r from-[#2b347c] to-[#1a2d6b] text-white p-8 rounded-xl mb-12">
             <h3 className="text-2xl font-bold mb-4">Other Ways to Give</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="flex items-start gap-3">
@@ -1118,12 +1174,19 @@ const DonatePage = () => {
               </div>
             </div>
           </div>
+
+          {/* Call to Action */}
+          <div className="text-center mt-12 mb-12">
+            <h2 className="text-3xl font-bold text-[#2b347c] mb-4">Join Us in Making a Difference</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto mb-6">
+              Every contribution helps us change lives through literacy. Partner with us in building a brighter future for children and youth.
+            </p>
+          </div>
         </motion.div>
       </div>
     </div>
   );
 };
-
 // Volunteer Page (simplified version)
 const VolunteerPage = () => {
   const volunteerAreas = [
@@ -1275,7 +1338,7 @@ const ContactPage = () => (
                 <Phone className="w-6 h-6 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-bold mb-1">Phone</h3>
-                  <p className="opacity-90">+27 XX XXX XXXX</p>
+                  <p className="opacity-90">+27 83 646 9971</p>
                 </div>
               </div>
 
@@ -1283,12 +1346,12 @@ const ContactPage = () => (
                 <MapPin className="w-6 h-6 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-bold mb-1">Address</h3>
-                  <p className="opacity-90">South Africa</p>
+                  <p className="opacity-90">48 Steen Street, Rustenburg 0300, North West South Africa</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-12">
+            {/* <div className="mt-12">
               <h3 className="font-bold mb-4">Follow Us</h3>
               <div className="flex gap-4">
                 {[Facebook, Twitter, Instagram, Youtube, Linkedin].map((Icon, i) => (
@@ -1300,7 +1363,7 @@ const ContactPage = () => (
                   </button>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="bg-white p-8 rounded-2xl shadow-xl">
@@ -1357,12 +1420,12 @@ const ContactPage = () => (
 
 // Footer Component
 const Footer = ({ setCurrentPage }) => {
-  const socialPlatforms = [
-    { icon: Facebook, platform: "Facebook" },
-    { icon: Twitter, platform: "Twitter" },
-    { icon: Instagram, platform: "Instagram" },
-    { icon: Youtube, platform: "YouTube" }
-  ];
+  // const socialPlatforms = [
+  //   { icon: Facebook, platform: "Facebook" },
+  //   { icon: Twitter, platform: "Twitter" },
+  //   { icon: Instagram, platform: "Instagram" },
+  //   { icon: Youtube, platform: "YouTube" }
+  // ];
 
   return (
     <footer className="bg-gradient-to-r from-[#2b347c] to-[#1a2d6b] text-white py-12">
@@ -1394,7 +1457,7 @@ const Footer = ({ setCurrentPage }) => {
           </div>
           <div>
             <h4 className="font-bold mb-4">Connect</h4>
-            <div className="flex gap-3 mb-4">
+            {/* <div className="flex gap-3 mb-4">
               {socialPlatforms.map(({ icon: Icon, platform }, i) => (
                 <button
                   key={i}
@@ -1404,12 +1467,12 @@ const Footer = ({ setCurrentPage }) => {
                   <Icon className="w-4 h-4" />
                 </button>
               ))}
-            </div>
+            </div> */}
             <p className="text-sm text-white/80">info@bookworld.org.za</p>
           </div>
         </div>
         <div className="border-t border-white/20 pt-8 text-center text-sm text-white/70">
-          <p>&copy; 2025 Book World. All rights reserved.</p>
+          <p>&copy; 2026 Book World. All rights reserved.</p>
         </div>
       </div>
     </footer>
