@@ -528,7 +528,7 @@ const HomePage = ({ setCurrentPage }) => {
               { image: "/images/WRA05.jpg", title: "Reading Celebrations", description: "Community reading events" },
               { image: "/images/WRAD.jpg", title: "World Read Aloud", description: "Global literacy celebration" },
               { image: "/images/LiteracyHub.jpeg", title: "Literacy Hub Openings", description: "New literacy hubs launched" },
-              { image: "/images/LunFriends.jpg", title: "Reading Friends", description: "Building literacy partnerships" }
+              { image: "/images/LuLadies.jpeg", title: "Literacy Buddies", description: "Building literacy partnerships" }
             ]} 
             interval={5000} 
           />
@@ -1450,10 +1450,10 @@ const ContactPage = () => (
 // Footer Component
 const Footer = ({ setCurrentPage }) => {
   const socialPlatforms = [
-    { icon: Facebook, platform: "Facebook" },
-    { icon: Twitter, platform: "Twitter" },
-    { icon: Instagram, platform: "Instagram" },
-    { icon: Youtube, platform: "YouTube" }
+    {  icon: Facebook, url: "https://facebook.com/yourpage" },
+    { icon: Twitter, url: "https://twitter.com/yourpage" },
+    { icon: Instagram, url: "https://instagram.com/yourpage" },
+    { icon: Youtube, url: "https://youtube.com/yourpage" }
   ];
 
   return (
