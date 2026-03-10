@@ -1351,7 +1351,7 @@ const ContactPage = () => (
               </div>
             </div>
 
-            {/* <div className="mt-12">
+            <div className="mt-12">
               <h3 className="font-bold mb-4">Follow Us</h3>
               <div className="flex gap-4">
                 {[Facebook, Twitter, Instagram, Youtube, Linkedin].map((Icon, i) => (
@@ -1363,7 +1363,7 @@ const ContactPage = () => (
                   </button>
                 ))}
               </div>
-            </div> */}
+            </div>
           </div>
 
           <div className="bg-white p-8 rounded-2xl shadow-xl">
@@ -1420,12 +1420,12 @@ const ContactPage = () => (
 
 // Footer Component
 const Footer = ({ setCurrentPage }) => {
-  // const socialPlatforms = [
-  //   { icon: Facebook, platform: "Facebook" },
-  //   { icon: Twitter, platform: "Twitter" },
-  //   { icon: Instagram, platform: "Instagram" },
-  //   { icon: Youtube, platform: "YouTube" }
-  // ];
+  const socialPlatforms = [
+    { icon: Facebook, platform: "Facebook" },
+    { icon: Twitter, platform: "Twitter" },
+    { icon: Instagram, platform: "Instagram" },
+    { icon: Youtube, platform: "YouTube" }
+  ];
 
   return (
     <footer className="bg-gradient-to-r from-[#2b347c] to-[#1a2d6b] text-white py-12">
@@ -1457,7 +1457,7 @@ const Footer = ({ setCurrentPage }) => {
           </div>
           <div>
             <h4 className="font-bold mb-4">Connect</h4>
-            {/* <div className="flex gap-3 mb-4">
+            <div className="flex gap-3 mb-4">
               {socialPlatforms.map(({ icon: Icon, platform }, i) => (
                 <button
                   key={i}
@@ -1467,7 +1467,7 @@ const Footer = ({ setCurrentPage }) => {
                   <Icon className="w-4 h-4" />
                 </button>
               ))}
-            </div> */}
+            </div>
             <p className="text-sm text-white/80">info@bookworld.org.za</p>
           </div>
         </div>
