@@ -527,7 +527,7 @@ const HomePage = ({ setCurrentPage }) => {
               { image: "/images/WorldReadAloudCPT.jpg", title: "World Read Aloud Day", description: "Celebrating reading together" },
               { image: "/images/WRA05.jpg", title: "Reading Celebrations", description: "Community reading events" },
               { image: "/images/WRAD.jpg", title: "World Read Aloud", description: "Global literacy celebration" },
-              { image: "/images/bookOpening.gif", title: "Literacy Hub Openings", description: "New literacy hubs launched" },
+              { image: "/images/LiteracyHub.jpeg", title: "Literacy Hub Openings", description: "New literacy hubs launched" },
               { image: "/images/LunFriends.jpg", title: "Reading Friends", description: "Building literacy partnerships" }
             ]} 
             interval={5000} 
@@ -647,7 +647,7 @@ const AboutPage = () => (
     {/* Hero Image */}
     <div className="relative h-96 overflow-hidden">
       <img 
-        src="/images/LuBaby.jpeg" 
+        src="/images/LuTeam.jpeg" 
         alt="About Book World"
         className="w-full h-full object-contain"
       />
