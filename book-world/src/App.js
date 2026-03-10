@@ -287,7 +287,7 @@ const HomePage = ({ setCurrentPage }) => {
       </section>
 
       {/* Mission Statement with Image */}
-       {/*
+       
       <section className="container mx-auto px-6 py-24">
         <div className="text-center max-w-4xl mx-auto">
           <div className="mb-12">
@@ -318,7 +318,7 @@ const HomePage = ({ setCurrentPage }) => {
           </button>
         </div>
       </section>
-      */}
+     
 
       {/* About Section with Images */}
       <section className="container mx-auto px-6 py-16 bg-gray-50">
