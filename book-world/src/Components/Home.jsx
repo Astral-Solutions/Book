@@ -16,7 +16,7 @@ import {
   // Linkedin,
   ChevronLeft,
   ChevronRight,
-  Sparkles,
+  // Sparkles,
   Award,
   TrendingUp,
   Mail,
@@ -459,14 +459,14 @@ function Home() {
     }
   ];
 
-  const socialPlatforms = [
-    { icon: Facebook, platform: "Facebook" },
-    { icon: MessageCircle, platform: "WhatsApp" },
-    { icon: Twitter, platform: "Twitter" },
-    { icon: Youtube, platform: "YouTube" },
-    { icon: Instagram, platform: "Instagram" },
-    { icon: Linkedin, platform: "LinkedIn" }
-  ];
+  // const socialPlatforms = [
+  //   { icon: Facebook, platform: "Facebook" },
+  //   { icon: MessageCircle, platform: "WhatsApp" },
+  //   { icon: Twitter, platform: "Twitter" },
+  //   { icon: Youtube, platform: "YouTube" },
+  //   { icon: Instagram, platform: "Instagram" },
+  //   { icon: Linkedin, platform: "LinkedIn" }
+  // ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
