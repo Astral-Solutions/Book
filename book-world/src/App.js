@@ -143,7 +143,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
             onClick={() => setCurrentPage("Home")}
           >
             <img
-              src="/BookWorldLogo.png"
+              src="/BookWorld.jpeg"
               alt="Book World Logo"
               className="w-10 h-10 object-contain"
             />

@@ -23,7 +23,7 @@ const ResponsiveLogo = ({ scrolled, className = '' }) => {
       }}
     >
       <img
-        src="/images/BookWorldLogo.png"
+        src="/images/BWLogo.png"
         alt="Logo"
         className="w-full h-full object-contain transition-all duration-300 ease-in-out"
       />
