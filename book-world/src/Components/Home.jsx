@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -43,93 +44,99 @@ const EnhancedCarousel = ({ slides, interval = 8000, showDots = true }) => {
 
   useEffect(() => {
     if (isPaused) return;
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, interval);
+
     return () => clearInterval(timer);
   }, [slides.length, interval, isPaused]);
 
   const goToSlide = (index) => setCurrentSlide(index);
-  const goToPrevious = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  const goToNext = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const goToPrevious = () =>
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const goToNext = () =>
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
 
   return (
-    <div 
-      className="relative h-full w-full overflow-hidden rounded-2xl shadow-2xl"
+    <div
+      className="relative w-full overflow-hidden rounded-2xl shadow-2xl"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ duration: 0.7 }}
-          className="absolute inset-0"
+          className="w-full"
         >
-          <div className="relative h-full w-full">
+          {/* IMAGE */}
+          <div className="w-full h-[450px] overflow-hidden">
             {slides[currentSlide].image ? (
-              <>
-                <img 
-                  src={slides[currentSlide].image} 
-                  alt={slides[currentSlide].title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
-              </>
+              <img
+                src={slides[currentSlide].image}
+                alt={slides[currentSlide].title}
+                className="w-full h-full object-contain"
+              />
             ) : (
               <div className="bg-gradient-to-br from-[#2b347c] via-[#1a2d6b] to-[#0f1a4d] h-full w-full" />
             )}
-            
-            <div className="absolute inset-0 flex items-center justify-center px-8 md:px-16">
-              <div className="text-center max-w-4xl">
-                <motion.div
-                  initial={{ y: 30, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.6 }}
-                >
-                  <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
-                    {slides[currentSlide].title}
-                  </h1>
-                </motion.div>
-                {slides[currentSlide].description && (
-                  <motion.p
-                    initial={{ y: 30, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.4, duration: 0.6 }}
-                    className="text-lg md:text-xl text-white/95 mb-8 leading-relaxed drop-shadow-md"
-                  >
-                    {slides[currentSlide].description}
-                  </motion.p>
-                )}
-              </div>
-            </div>
+          </div>
+
+          {/* TEXT BELOW IMAGE */}
+          <div className="bg-white p-10 text-center">
+            <motion.h1
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-4xl md:text-5xl font-bold text-[#2b347c] mb-4"
+            >
+              {slides[currentSlide].title}
+            </motion.h1>
+
+            {slides[currentSlide].description && (
+              <motion.p
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="text-lg text-gray-700 max-w-3xl mx-auto"
+              >
+                {slides[currentSlide].description}
+              </motion.p>
+            )}
           </div>
         </motion.div>
       </AnimatePresence>
 
+      {/* Navigation Buttons */}
       <button
         onClick={goToPrevious}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-all duration-300 group z-10"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 backdrop-blur-sm p-3 rounded-full transition-all duration-300 group z-10"
       >
         <ChevronLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
       </button>
+
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-all duration-300 group z-10"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 backdrop-blur-sm p-3 rounded-full transition-all duration-300 group z-10"
       >
         <ChevronRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
       </button>
 
+      {/* Dots */}
       {showDots && (
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-10">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                index === currentSlide ? 'w-8 bg-white' : 'w-2 bg-white/50 hover:bg-white/75'
+                index === currentSlide
+                  ? "w-8 bg-white"
+                  : "w-2 bg-white/50 hover:bg-white/75"
               }`}
             />
           ))}
@@ -149,7 +156,7 @@ const ImageCard = ({ image, title, description }) => (
       <img 
         src={image} 
         alt={title}
-        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </div>
@@ -213,7 +220,7 @@ const FunctionGroupCard = ({ title, description, link, icon: Icon, image }) => {
       <div className="relative h-56 overflow-hidden">
         {image ? (
           <>
-            <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <img src={image} alt={title} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           </>
         ) : (
@@ -540,7 +547,7 @@ function Home() {
             viewport={{ once: true }}
             className="md:col-span-1"
           >
-            <img src="/images/About.jpg" alt="About Us" className="w-full h-full object-cover rounded-xl shadow-lg" />
+            <img src="/images/OurStory.jpeg" alt="About Us" className="w-full h-full object-contain rounded-xl shadow-lg" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -549,7 +556,7 @@ function Home() {
             transition={{ delay: 0.1 }}
             className="md:col-span-1"
           >
-            <img src="/images/AboutUs.jpg" alt="Our Story" className="w-full h-full object-cover rounded-xl shadow-lg" />
+            <img src="/images/AboutUs.jpg" alt="Our Story" className="w-full h-full object-contain rounded-xl shadow-lg" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -558,7 +565,7 @@ function Home() {
             transition={{ delay: 0.2 }}
             className="md:col-span-1"
           >
-            <img src="/images/Litfac.JPG" alt="Literacy Facilitators" className="w-full h-full object-cover rounded-xl shadow-lg" />
+            <img src="/images/OurTeam.jpeg" alt="Literacy Facilitators" className="w-full h-full object-contain rounded-xl shadow-lg" />
           </motion.div>
         </div>
       </section>
@@ -609,28 +616,30 @@ function Home() {
       </section>
 
       {/* Impact Gallery */}
-      <section className="container mx-auto px-6 py-24 bg-gray-50">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold text-[#2b347c] mb-6">Our Impact</h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            See the real difference we're making in communities across South Africa.
-          </p>
-        </div>
+      {/* 
+<section className="container mx-auto px-6 py-24 bg-gray-50">
+  <div className="text-center mb-16">
+    <h2 className="text-5xl md:text-6xl font-bold text-[#2b347c] mb-6">Our Impact</h2>
+    <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+      See the real difference we're making in communities across South Africa.
+    </p>
+  </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {impactGallery.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-            >
-              <ImageCard {...item} />
-            </motion.div>
-          ))}
-        </div>
-      </section>
+  <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+    {impactGallery.map((item, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: index * 0.05 }}
+      >
+        <ImageCard {...item} />
+      </motion.div>
+    ))}
+  </div>
+</section>
+*/}
 
       {/* Activities & Events */}
       <section className="container mx-auto px-6 py-24">
@@ -653,6 +662,7 @@ function Home() {
       </section>
 
       {/* Research Section */}
+      {/*
       <section className="container mx-auto px-6 py-24 bg-gray-50">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold text-[#2b347c] mb-6">Research & Development</h2>
@@ -675,8 +685,10 @@ function Home() {
           ))}
         </div>
       </section>
+      */}
 
       {/* Training Section */}
+      {/*
       <section className="container mx-auto px-6 py-24">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold text-[#2b347c] mb-6">Training Programs</h2>
@@ -700,7 +712,7 @@ function Home() {
               >
                 {program.image && (
                   <div className="h-48 overflow-hidden">
-                    <img src={program.image} alt={program.title} className="w-full h-full object-cover" />
+                    <img src={program.image} alt={program.title} className="w-full h-full object-contain" />
                   </div>
                 )}
                 <div className="p-6">
@@ -718,8 +730,10 @@ function Home() {
           ))}
         </div>
       </section>
+      */}
 
       {/* Team Section */}
+      {/*
       <section className="container mx-auto px-6 py-24 bg-gray-50">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold text-[#2b347c] mb-6">Meet Our Team</h2>
@@ -748,6 +762,7 @@ function Home() {
           </Link>
         </div>
       </section>
+      */}
 
       {/* Why Book World */}
       <section className="container mx-auto px-6 py-24">
