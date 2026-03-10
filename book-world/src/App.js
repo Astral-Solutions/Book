@@ -910,7 +910,7 @@ const TrainingPage = () => {
       duration: "3 weeks",
       description: "Techniques for inspiring children and families to embrace reading as a lifestyle.",
       modules: ["Storytelling techniques", "Event planning", "Parent engagement", "Creating reading culture"],
-      image: "/images/ReadingPromotion.jpg"
+      image: "/images/LiteracyPromo.jpeg"
     }
   ];
 
