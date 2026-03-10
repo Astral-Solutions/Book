@@ -172,7 +172,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
             onClick={() => setCurrentPage("Home")}
           >
             <img
-              src="/BookWorld.jpeg"
+              src="/BWLogo.png"
               alt="Book World Logo"
               className="w-10 h-10 object-contain"
             />
@@ -647,7 +647,7 @@ const AboutPage = () => (
     {/* Hero Image */}
     <div className="relative h-96 overflow-hidden">
       <img 
-        src="/images/LuTeam.jpeg" 
+        src="/images/LuBaby.jpeg" 
         alt="About Book World"
         className="w-full h-full object-contain"
       />
